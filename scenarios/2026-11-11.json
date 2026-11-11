@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "revision": "2026-11-11 premarket rerun",
+  "revision": "2026-11-11 09:50 ET market update: AI-led rebound, CPI repricing, Veterans Day",
   "date": "2026-11-11",
   "instrument": "ES",
   "timezone": "America/New_York",
@@ -16,7 +16,7 @@
     {
       "id": "S01",
       "title": "Bullish macro continuation",
-      "description": "Bullish rebound candidate: ES advances with NQ recovery and easing oil pressure despite prior-day hawkish inflation repricing.",
+      "description": "Conditional bullish recovery: ES strength with NQ recovery and softer WTI; Wednesday AI-led rebound is reported, but WTI has instead rebounded, so this stricter macro-alignment scenario may not qualify.",
       "direction": "BULLISH",
       "priority": 3,
       "window": {
@@ -79,14 +79,14 @@
       "minimum_persistence_seconds": 300,
       "expires_at": "16:00:00",
       "qualification": "FULLY_EVALUABLE",
-      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only: price conditions cannot establish external causation. Prior-day hot CPI and Fed repricing remain context, not live verified catalysts. Veterans Day bond market closure may impair ZN/ZF metric freshness; do not evaluate stale data. Thresholds are uncalibrated research defaults; Finviz feed and runtime registry unverified."
+      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only: price conditions cannot establish external causation. Prior-day hot CPI and Fed repricing remain context, not live verified catalysts. Veterans Day bond market closure may impair ZN/ZF metric freshness; do not evaluate stale data. Thresholds are uncalibrated research defaults; Finviz feed and runtime registry unverified. As of 09:50 ET November 11, news reports indicate AI-led NQ rebound and oil rebound; conditional metric thresholds are not asserted as satisfied. US bond market holiday may impair ZN/ZF freshness."
     },
     {
       "id": "S02",
       "title": "ES outperformance over NQ",
       "description": "ES resilience versus NQ following prior-day hot CPI; positive ES/NQ relative spread, even if both futures fall.",
       "direction": "BULLISH",
-      "priority": 2,
+      "priority": 4,
       "window": {
         "starts_at": "08:30:00",
         "ends_at": "16:00:00"
@@ -135,14 +135,14 @@
       "minimum_persistence_seconds": 300,
       "expires_at": "16:00:00",
       "qualification": "MARKET_REACTION_PROXY",
-      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only: price conditions cannot establish external causation. Prior-day hot CPI and Fed repricing remain context, not live verified catalysts. Veterans Day bond market closure may impair ZN/ZF metric freshness; do not evaluate stale data. Thresholds are uncalibrated research defaults; Finviz feed and runtime registry unverified."
+      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only: price conditions cannot establish external causation. Prior-day hot CPI and Fed repricing remain context, not live verified catalysts. Veterans Day bond market closure may impair ZN/ZF metric freshness; do not evaluate stale data. Thresholds are uncalibrated research defaults; Finviz feed and runtime registry unverified. As of 09:50 ET November 11, news reports indicate AI-led NQ rebound and oil rebound; conditional metric thresholds are not asserted as satisfied. US bond market holiday may impair ZN/ZF freshness."
     },
     {
       "id": "S03",
       "title": "Technology underperformance",
       "description": "Technology underperformance: NQ sells off faster than ES in the inflation-driven repricing.",
       "direction": "CONDITIONAL",
-      "priority": 4,
+      "priority": 6,
       "window": {
         "starts_at": "08:30:00",
         "ends_at": "16:00:00"
@@ -191,14 +191,14 @@
       "minimum_persistence_seconds": 300,
       "expires_at": "16:00:00",
       "qualification": "FULLY_EVALUABLE",
-      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only: price conditions cannot establish external causation. Prior-day hot CPI and Fed repricing remain context, not live verified catalysts. Veterans Day bond market closure may impair ZN/ZF metric freshness; do not evaluate stale data. Thresholds are uncalibrated research defaults; Finviz feed and runtime registry unverified."
+      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only: price conditions cannot establish external causation. Prior-day hot CPI and Fed repricing remain context, not live verified catalysts. Veterans Day bond market closure may impair ZN/ZF metric freshness; do not evaluate stale data. Thresholds are uncalibrated research defaults; Finviz feed and runtime registry unverified. As of 09:50 ET November 11, news reports indicate AI-led NQ rebound and oil rebound; conditional metric thresholds are not asserted as satisfied. US bond market holiday may impair ZN/ZF freshness."
     },
     {
       "id": "S04",
       "title": "Hawkish rates repricing proxy",
       "description": "Hawkish repricing persists: equity weakness and Treasury futures declines align, if fresh bond quotes exist despite Veterans Day.",
       "direction": "BEARISH",
-      "priority": 1,
+      "priority": 2,
       "window": {
         "starts_at": "08:30:00",
         "ends_at": "16:00:00"
@@ -265,14 +265,14 @@
       "minimum_persistence_seconds": 300,
       "expires_at": "16:00:00",
       "qualification": "MARKET_REACTION_PROXY",
-      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only: price conditions cannot establish external causation. Prior-day hot CPI and Fed repricing remain context, not live verified catalysts. Veterans Day bond market closure may impair ZN/ZF metric freshness; do not evaluate stale data. Thresholds are uncalibrated research defaults; Finviz feed and runtime registry unverified."
+      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only: price conditions cannot establish external causation. Prior-day hot CPI and Fed repricing remain context, not live verified catalysts. Veterans Day bond market closure may impair ZN/ZF metric freshness; do not evaluate stale data. Thresholds are uncalibrated research defaults; Finviz feed and runtime registry unverified. As of 09:50 ET November 11, news reports indicate AI-led NQ rebound and oil rebound; conditional metric thresholds are not asserted as satisfied. US bond market holiday may impair ZN/ZF freshness."
     },
     {
       "id": "S05",
       "title": "Defensive Treasury buying",
       "description": "Defensive Treasury buying alternative: ZN rises while ES/NQ decline, distinguishing risk-off from a uniform bond/equity selloff.",
       "direction": "BEARISH",
-      "priority": 5,
+      "priority": 7,
       "window": {
         "starts_at": "08:30:00",
         "ends_at": "16:00:00"
@@ -333,14 +333,14 @@
       "minimum_persistence_seconds": 300,
       "expires_at": "16:00:00",
       "qualification": "FULLY_EVALUABLE",
-      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only: price conditions cannot establish external causation. Prior-day hot CPI and Fed repricing remain context, not live verified catalysts. Veterans Day bond market closure may impair ZN/ZF metric freshness; do not evaluate stale data. Thresholds are uncalibrated research defaults; Finviz feed and runtime registry unverified."
+      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only: price conditions cannot establish external causation. Prior-day hot CPI and Fed repricing remain context, not live verified catalysts. Veterans Day bond market closure may impair ZN/ZF metric freshness; do not evaluate stale data. Thresholds are uncalibrated research defaults; Finviz feed and runtime registry unverified. As of 09:50 ET November 11, news reports indicate AI-led NQ rebound and oil rebound; conditional metric thresholds are not asserted as satisfied. US bond market holiday may impair ZN/ZF freshness."
     },
     {
       "id": "S06",
       "title": "Inflationary oil shock proxy",
       "description": "Oil reversal risk despite de-escalation headlines: WTI rebounds while ZF and ES weaken; market alignment only.",
       "direction": "BEARISH",
-      "priority": 7,
+      "priority": 5,
       "window": {
         "starts_at": "08:30:00",
         "ends_at": "16:00:00"
@@ -395,14 +395,14 @@
       "minimum_persistence_seconds": 300,
       "expires_at": "16:00:00",
       "qualification": "MARKET_REACTION_PROXY",
-      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only: price conditions cannot establish external causation. Prior-day hot CPI and Fed repricing remain context, not live verified catalysts. Veterans Day bond market closure may impair ZN/ZF metric freshness; do not evaluate stale data. Thresholds are uncalibrated research defaults; Finviz feed and runtime registry unverified."
+      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only: price conditions cannot establish external causation. Prior-day hot CPI and Fed repricing remain context, not live verified catalysts. Veterans Day bond market closure may impair ZN/ZF metric freshness; do not evaluate stale data. Thresholds are uncalibrated research defaults; Finviz feed and runtime registry unverified. As of 09:50 ET November 11, news reports indicate AI-led NQ rebound and oil rebound; conditional metric thresholds are not asserted as satisfied. US bond market holiday may impair ZN/ZF freshness."
     },
     {
       "id": "S07",
       "title": "Failed upside price movement",
       "description": "ES intraday rebound fails, inferred solely from price-return reversal proxies; no auction state flag.",
       "direction": "BEARISH",
-      "priority": 6,
+      "priority": 1,
       "window": {
         "starts_at": "08:30:00",
         "ends_at": "16:00:00"
@@ -457,7 +457,7 @@
       "minimum_persistence_seconds": 300,
       "expires_at": "16:00:00",
       "qualification": "PRICE_REVERSAL_PROXY",
-      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only: price conditions cannot establish external causation. Prior-day hot CPI and Fed repricing remain context, not live verified catalysts. Veterans Day bond market closure may impair ZN/ZF metric freshness; do not evaluate stale data. Thresholds are uncalibrated research defaults; Finviz feed and runtime registry unverified."
+      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only: price conditions cannot establish external causation. Prior-day hot CPI and Fed repricing remain context, not live verified catalysts. Veterans Day bond market closure may impair ZN/ZF metric freshness; do not evaluate stale data. Thresholds are uncalibrated research defaults; Finviz feed and runtime registry unverified. As of 09:50 ET November 11, news reports indicate AI-led NQ rebound and oil rebound; conditional metric thresholds are not asserted as satisfied. US bond market holiday may impair ZN/ZF freshness."
     },
     {
       "id": "S08",
@@ -537,7 +537,7 @@
       "minimum_persistence_seconds": 300,
       "expires_at": "16:00:00",
       "qualification": "FULLY_EVALUABLE",
-      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only: price conditions cannot establish external causation. Prior-day hot CPI and Fed repricing remain context, not live verified catalysts. Veterans Day bond market closure may impair ZN/ZF metric freshness; do not evaluate stale data. Thresholds are uncalibrated research defaults; Finviz feed and runtime registry unverified."
+      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only: price conditions cannot establish external causation. Prior-day hot CPI and Fed repricing remain context, not live verified catalysts. Veterans Day bond market closure may impair ZN/ZF metric freshness; do not evaluate stale data. Thresholds are uncalibrated research defaults; Finviz feed and runtime registry unverified. As of 09:50 ET November 11, news reports indicate AI-led NQ rebound and oil rebound; conditional metric thresholds are not asserted as satisfied. US bond market holiday may impair ZN/ZF freshness."
     }
   ]
 }
