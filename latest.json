@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "revision": "2026-11-12 conditional premarket scenarios; unverified live-market inputs",
-  "date": "2026-11-12",
+  "revision": "2026-11-13 09:08 ET post-PPI conditional premarket; unverified exact PPI values",
+  "date": "2026-11-13",
   "instrument": "ES",
   "timezone": "America/New_York",
   "settings": {
@@ -15,21 +15,15 @@
   "hypotheses": [
     {
       "id": "S01",
-      "title": "Equity and bond recovery alignment",
-      "description": "Conditional recovery: ES rises with Treasury futures and softer oil; price alignment only, not evidence of a specific macro catalyst.",
+      "title": "PPI relief continuation",
+      "description": "ES/NQ rebound and strengthening Treasury futures would be consistent with a favorable PPI reaction, but would not prove PPI causation.",
       "direction": "BULLISH",
-      "priority": 3,
+      "priority": 1,
       "window": {
         "starts_at": "08:30:00",
         "ends_at": "16:00:00"
       },
       "support": [
-        {
-          "metric": "wti.daily_change_pct",
-          "operator": "lt",
-          "threshold": -1,
-          "weight": 1
-        },
         {
           "metric": "es.return_30m_pct",
           "operator": "gt",
@@ -37,32 +31,51 @@
           "weight": 1
         },
         {
+          "metric": "nq.return_30m_pct",
+          "operator": "gt",
+          "threshold": 0.2,
+          "weight": 1
+        },
+        {
           "metric": "zn.return_30m_pct",
           "operator": "gt",
-          "threshold": 0,
+          "threshold": 0.03,
           "weight": 1
         }
       ],
       "contradictions": [
         {
-          "metric": "es.return_30m_pct",
+          "metric": "es.return_15m_pct",
           "operator": "lt",
-          "threshold": -0.25,
+          "threshold": -0.2,
           "weight": 1
         },
         {
           "metric": "zn.return_30m_pct",
           "operator": "lt",
-          "threshold": -0.07,
+          "threshold": -0.04,
           "weight": 1
         }
       ],
-      "optional_evidence": [],
+      "optional_evidence": [
+        {
+          "metric": "gold.return_15m_pct",
+          "operator": "gt",
+          "threshold": 0.1,
+          "weight": 1
+        }
+      ],
       "validation_scope": "MARKET_ALIGNMENT",
       "hard_invalidation": [],
       "required_confirmation": [
         {
           "metric": "es.return_15m_pct",
+          "operator": "gt",
+          "threshold": 0,
+          "weight": 1
+        },
+        {
+          "metric": "nq.return_15m_pct",
           "operator": "gt",
           "threshold": 0,
           "weight": 1
@@ -79,14 +92,314 @@
       "minimum_persistence_seconds": 300,
       "expires_at": "16:00:00",
       "qualification": "MARKET_REACTION_PROXY",
-      "limitation": "2026-11-12 CONDITIONAL research hypothesis, not a verified premarket observation. All metrics are permitted Finviz-style price proxies; no external news causation is inferred. No live quote freshness, source timestamps, market levels or actual threshold calibration were verified here. Do not score missing or stale inputs. Thresholds are illustrative and require empirical calibration."
+      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only. External causation unverified. 2026-11-13 post-PPI exact official values not independently verified. Source freshness and actual Finviz runtime metric registry not inspected. Thresholds illustrative, not backtested. Missing or stale quotes must not be scored."
     },
     {
       "id": "S02",
-      "title": "ES relative strength versus NQ",
-      "description": "ES outperforms NQ on rolling 15m and 30m returns, regardless of absolute market direction.",
-      "direction": "BULLISH",
+      "title": "Technology-led ES downside",
+      "description": "NQ underperforms ES as technology weakness spills into index futures; price alignment does not establish an Nvidia-specific cause.",
+      "direction": "BEARISH",
       "priority": 2,
+      "window": {
+        "starts_at": "08:30:00",
+        "ends_at": "16:00:00"
+      },
+      "support": [
+        {
+          "metric": "nq.return_30m_pct",
+          "operator": "lt",
+          "threshold": -0.3,
+          "weight": 1
+        },
+        {
+          "metric": "relative.es_minus_nq_30m_pct",
+          "operator": "gt",
+          "threshold": 0.2,
+          "weight": 1
+        }
+      ],
+      "contradictions": [
+        {
+          "metric": "nq.return_15m_pct",
+          "operator": "gt",
+          "threshold": 0.2,
+          "weight": 1
+        },
+        {
+          "metric": "relative.es_minus_nq_15m_pct",
+          "operator": "lt",
+          "threshold": -0.1,
+          "weight": 1
+        }
+      ],
+      "optional_evidence": [
+        {
+          "metric": "btc.return_15m_pct",
+          "operator": "lt",
+          "threshold": -0.5,
+          "weight": 1
+        }
+      ],
+      "validation_scope": "MARKET_ALIGNMENT",
+      "hard_invalidation": [],
+      "required_confirmation": [
+        {
+          "metric": "nq.return_15m_pct",
+          "operator": "lt",
+          "threshold": 0,
+          "weight": 1
+        }
+      ],
+      "thresholds": {
+        "minimum_coverage": 70,
+        "developing": 50,
+        "validated": 80,
+        "contradicted": 70,
+        "hysteresis": 5
+      },
+      "minimum_observation_seconds": 300,
+      "minimum_persistence_seconds": 300,
+      "expires_at": "16:00:00",
+      "qualification": "MARKET_REACTION_PROXY",
+      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only. External causation unverified. 2026-11-13 post-PPI exact official values not independently verified. Source freshness and actual Finviz runtime metric registry not inspected. Thresholds illustrative, not backtested. Missing or stale quotes must not be scored."
+    },
+    {
+      "id": "S03",
+      "title": "Hawkish equity-bond selling",
+      "description": "Equity and Treasury futures decline together, consistent with tightening repricing but not confirmation of Fed intent.",
+      "direction": "BEARISH",
+      "priority": 3,
+      "window": {
+        "starts_at": "08:30:00",
+        "ends_at": "16:00:00"
+      },
+      "support": [
+        {
+          "metric": "es.return_30m_pct",
+          "operator": "lt",
+          "threshold": -0.2,
+          "weight": 1
+        },
+        {
+          "metric": "zf.return_30m_pct",
+          "operator": "lt",
+          "threshold": -0.04,
+          "weight": 1
+        },
+        {
+          "metric": "nq.return_30m_pct",
+          "operator": "lt",
+          "threshold": -0.25,
+          "weight": 1
+        }
+      ],
+      "contradictions": [
+        {
+          "metric": "zf.return_15m_pct",
+          "operator": "gt",
+          "threshold": 0.04,
+          "weight": 1
+        },
+        {
+          "metric": "es.return_15m_pct",
+          "operator": "gt",
+          "threshold": 0.2,
+          "weight": 1
+        }
+      ],
+      "optional_evidence": [
+        {
+          "metric": "gold.return_30m_pct",
+          "operator": "lt",
+          "threshold": -0.1,
+          "weight": 1
+        }
+      ],
+      "validation_scope": "MARKET_ALIGNMENT",
+      "hard_invalidation": [],
+      "required_confirmation": [
+        {
+          "metric": "es.return_15m_pct",
+          "operator": "lt",
+          "threshold": 0,
+          "weight": 1
+        },
+        {
+          "metric": "zf.return_15m_pct",
+          "operator": "lt",
+          "threshold": 0,
+          "weight": 1
+        }
+      ],
+      "thresholds": {
+        "minimum_coverage": 70,
+        "developing": 50,
+        "validated": 80,
+        "contradicted": 70,
+        "hysteresis": 5
+      },
+      "minimum_observation_seconds": 300,
+      "minimum_persistence_seconds": 300,
+      "expires_at": "16:00:00",
+      "qualification": "MARKET_REACTION_PROXY",
+      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only. External causation unverified. 2026-11-13 post-PPI exact official values not independently verified. Source freshness and actual Finviz runtime metric registry not inspected. Thresholds illustrative, not backtested. Missing or stale quotes must not be scored."
+    },
+    {
+      "id": "S04",
+      "title": "Defensive Treasury bid",
+      "description": "ES/NQ weakness with rising ZN indicates defensive risk-off alignment, distinct from uniform bond-equity selling.",
+      "direction": "BEARISH",
+      "priority": 4,
+      "window": {
+        "starts_at": "08:30:00",
+        "ends_at": "16:00:00"
+      },
+      "support": [
+        {
+          "metric": "es.return_15m_pct",
+          "operator": "lt",
+          "threshold": -0.1,
+          "weight": 1
+        },
+        {
+          "metric": "nq.return_15m_pct",
+          "operator": "lt",
+          "threshold": -0.15,
+          "weight": 1
+        },
+        {
+          "metric": "zn.return_15m_pct",
+          "operator": "gt",
+          "threshold": 0.03,
+          "weight": 1
+        }
+      ],
+      "contradictions": [
+        {
+          "metric": "zn.return_15m_pct",
+          "operator": "lt",
+          "threshold": -0.03,
+          "weight": 1
+        }
+      ],
+      "optional_evidence": [
+        {
+          "metric": "gold.return_15m_pct",
+          "operator": "gt",
+          "threshold": 0.1,
+          "weight": 1
+        }
+      ],
+      "validation_scope": "MARKET_ALIGNMENT",
+      "hard_invalidation": [],
+      "required_confirmation": [
+        {
+          "metric": "es.return_30m_pct",
+          "operator": "lt",
+          "threshold": 0,
+          "weight": 1
+        },
+        {
+          "metric": "zn.return_30m_pct",
+          "operator": "gt",
+          "threshold": 0,
+          "weight": 1
+        }
+      ],
+      "thresholds": {
+        "minimum_coverage": 70,
+        "developing": 50,
+        "validated": 80,
+        "contradicted": 70,
+        "hysteresis": 5
+      },
+      "minimum_observation_seconds": 300,
+      "minimum_persistence_seconds": 300,
+      "expires_at": "16:00:00",
+      "qualification": "MARKET_REACTION_PROXY",
+      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only. External causation unverified. 2026-11-13 post-PPI exact official values not independently verified. Source freshness and actual Finviz runtime metric registry not inspected. Thresholds illustrative, not backtested. Missing or stale quotes must not be scored."
+    },
+    {
+      "id": "S05",
+      "title": "Oil-supply risk alignment",
+      "description": "A WTI surge accompanied by ES and ZF declines would be consistent with energy-led inflation anxiety, not verified tanker-event causation.",
+      "direction": "BEARISH",
+      "priority": 5,
+      "window": {
+        "starts_at": "08:30:00",
+        "ends_at": "16:00:00"
+      },
+      "support": [
+        {
+          "metric": "wti.return_30m_pct",
+          "operator": "gt",
+          "threshold": 0.75,
+          "weight": 1
+        },
+        {
+          "metric": "es.return_30m_pct",
+          "operator": "lt",
+          "threshold": -0.15,
+          "weight": 1
+        },
+        {
+          "metric": "zf.return_30m_pct",
+          "operator": "lt",
+          "threshold": 0,
+          "weight": 1
+        }
+      ],
+      "contradictions": [
+        {
+          "metric": "wti.return_15m_pct",
+          "operator": "lt",
+          "threshold": -0.5,
+          "weight": 1
+        },
+        {
+          "metric": "es.return_15m_pct",
+          "operator": "gt",
+          "threshold": 0.2,
+          "weight": 1
+        }
+      ],
+      "optional_evidence": [
+        {
+          "metric": "gold.return_30m_pct",
+          "operator": "gt",
+          "threshold": 0.15,
+          "weight": 1
+        }
+      ],
+      "validation_scope": "MARKET_ALIGNMENT",
+      "hard_invalidation": [],
+      "required_confirmation": [
+        {
+          "metric": "wti.return_15m_pct",
+          "operator": "gt",
+          "threshold": 0,
+          "weight": 1
+        }
+      ],
+      "thresholds": {
+        "minimum_coverage": 70,
+        "developing": 50,
+        "validated": 80,
+        "contradicted": 70,
+        "hysteresis": 5
+      },
+      "minimum_observation_seconds": 300,
+      "minimum_persistence_seconds": 300,
+      "expires_at": "16:00:00",
+      "qualification": "MARKET_REACTION_PROXY",
+      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only. External causation unverified. 2026-11-13 post-PPI exact official values not independently verified. Source freshness and actual Finviz runtime metric registry not inspected. Thresholds illustrative, not backtested. Missing or stale quotes must not be scored."
+    },
+    {
+      "id": "S06",
+      "title": "ES resilience versus NQ",
+      "description": "Positive relative ES-minus-NQ returns indicate ES resilience, not necessarily absolute ES strength.",
+      "direction": "CONDITIONAL",
+      "priority": 6,
       "window": {
         "starts_at": "08:30:00",
         "ends_at": "16:00:00"
@@ -113,8 +426,15 @@
           "weight": 1
         }
       ],
-      "optional_evidence": [],
-      "validation_scope": "MARKET_ALIGNMENT",
+      "optional_evidence": [
+        {
+          "metric": "es.return_15m_pct",
+          "operator": "gt",
+          "threshold": 0,
+          "weight": 1
+        }
+      ],
+      "validation_scope": "PRICE_PROXY",
       "hard_invalidation": [],
       "required_confirmation": [
         {
@@ -135,274 +455,14 @@
       "minimum_persistence_seconds": 300,
       "expires_at": "16:00:00",
       "qualification": "MARKET_REACTION_PROXY",
-      "limitation": "2026-11-12 CONDITIONAL research hypothesis, not a verified premarket observation. All metrics are permitted Finviz-style price proxies; no external news causation is inferred. No live quote freshness, source timestamps, market levels or actual threshold calibration were verified here. Do not score missing or stale inputs. Thresholds are illustrative and require empirical calibration."
-    },
-    {
-      "id": "S03",
-      "title": "NQ-led technology weakness",
-      "description": "NQ weakness exceeds ES weakness over 30m, consistent with technology-led selling but not proof of its cause.",
-      "direction": "CONDITIONAL",
-      "priority": 4,
-      "window": {
-        "starts_at": "08:30:00",
-        "ends_at": "16:00:00"
-      },
-      "support": [
-        {
-          "metric": "nq.return_30m_pct",
-          "operator": "lt",
-          "threshold": -0.35,
-          "weight": 1
-        },
-        {
-          "metric": "relative.es_minus_nq_30m_pct",
-          "operator": "gt",
-          "threshold": 0.25,
-          "weight": 1
-        }
-      ],
-      "contradictions": [
-        {
-          "metric": "nq.return_30m_pct",
-          "operator": "gt",
-          "threshold": 0.2,
-          "weight": 1
-        }
-      ],
-      "optional_evidence": [],
-      "validation_scope": "MARKET_ALIGNMENT",
-      "hard_invalidation": [],
-      "required_confirmation": [
-        {
-          "metric": "relative.es_minus_nq_15m_pct",
-          "operator": "gt",
-          "threshold": 0,
-          "weight": 1
-        }
-      ],
-      "thresholds": {
-        "minimum_coverage": 70,
-        "developing": 50,
-        "validated": 80,
-        "contradicted": 70,
-        "hysteresis": 5
-      },
-      "minimum_observation_seconds": 300,
-      "minimum_persistence_seconds": 300,
-      "expires_at": "16:00:00",
-      "qualification": "MARKET_REACTION_PROXY",
-      "limitation": "2026-11-12 CONDITIONAL research hypothesis, not a verified premarket observation. All metrics are permitted Finviz-style price proxies; no external news causation is inferred. No live quote freshness, source timestamps, market levels or actual threshold calibration were verified here. Do not score missing or stale inputs. Thresholds are illustrative and require empirical calibration."
-    },
-    {
-      "id": "S04",
-      "title": "Equity and Treasury futures weakness",
-      "description": "ES, NQ and ZF weaken together; conditional cross-asset alignment rather than a verified hawkish policy event.",
-      "direction": "BEARISH",
-      "priority": 1,
-      "window": {
-        "starts_at": "08:30:00",
-        "ends_at": "16:00:00"
-      },
-      "support": [
-        {
-          "metric": "zf.return_30m_pct",
-          "operator": "lt",
-          "threshold": -0.04,
-          "weight": 1
-        },
-        {
-          "metric": "es.return_30m_pct",
-          "operator": "lt",
-          "threshold": -0.2,
-          "weight": 1
-        },
-        {
-          "metric": "nq.return_30m_pct",
-          "operator": "lt",
-          "threshold": -0.3,
-          "weight": 1
-        }
-      ],
-      "contradictions": [
-        {
-          "metric": "zf.return_30m_pct",
-          "operator": "gt",
-          "threshold": 0.05,
-          "weight": 1
-        },
-        {
-          "metric": "es.return_30m_pct",
-          "operator": "gt",
-          "threshold": 0.2,
-          "weight": 1
-        }
-      ],
-      "optional_evidence": [],
-      "validation_scope": "MARKET_ALIGNMENT",
-      "hard_invalidation": [],
-      "required_confirmation": [
-        {
-          "metric": "zf.return_15m_pct",
-          "operator": "lt",
-          "threshold": 0,
-          "weight": 1
-        },
-        {
-          "metric": "es.return_15m_pct",
-          "operator": "lt",
-          "threshold": 0,
-          "weight": 1
-        }
-      ],
-      "thresholds": {
-        "minimum_coverage": 70,
-        "developing": 50,
-        "validated": 80,
-        "contradicted": 70,
-        "hysteresis": 5
-      },
-      "minimum_observation_seconds": 300,
-      "minimum_persistence_seconds": 300,
-      "expires_at": "16:00:00",
-      "qualification": "MARKET_REACTION_PROXY",
-      "limitation": "2026-11-12 CONDITIONAL research hypothesis, not a verified premarket observation. All metrics are permitted Finviz-style price proxies; no external news causation is inferred. No live quote freshness, source timestamps, market levels or actual threshold calibration were verified here. Do not score missing or stale inputs. Thresholds are illustrative and require empirical calibration."
-    },
-    {
-      "id": "S05",
-      "title": "Defensive Treasury bid with equities lower",
-      "description": "ZN strengthens while ES and NQ weaken, a conditional defensive allocation pattern.",
-      "direction": "BEARISH",
-      "priority": 5,
-      "window": {
-        "starts_at": "08:30:00",
-        "ends_at": "16:00:00"
-      },
-      "support": [
-        {
-          "metric": "zn.return_15m_pct",
-          "operator": "gt",
-          "threshold": 0.03,
-          "weight": 1
-        },
-        {
-          "metric": "es.return_15m_pct",
-          "operator": "lt",
-          "threshold": -0.1,
-          "weight": 1
-        },
-        {
-          "metric": "nq.return_15m_pct",
-          "operator": "lt",
-          "threshold": -0.15,
-          "weight": 1
-        }
-      ],
-      "contradictions": [
-        {
-          "metric": "zn.return_15m_pct",
-          "operator": "lt",
-          "threshold": -0.03,
-          "weight": 1
-        }
-      ],
-      "optional_evidence": [],
-      "validation_scope": "MARKET_ALIGNMENT",
-      "hard_invalidation": [],
-      "required_confirmation": [
-        {
-          "metric": "zn.return_15m_pct",
-          "operator": "gt",
-          "threshold": 0,
-          "weight": 1
-        },
-        {
-          "metric": "es.return_15m_pct",
-          "operator": "lt",
-          "threshold": 0,
-          "weight": 1
-        }
-      ],
-      "thresholds": {
-        "minimum_coverage": 70,
-        "developing": 50,
-        "validated": 80,
-        "contradicted": 70,
-        "hysteresis": 5
-      },
-      "minimum_observation_seconds": 300,
-      "minimum_persistence_seconds": 300,
-      "expires_at": "16:00:00",
-      "qualification": "MARKET_REACTION_PROXY",
-      "limitation": "2026-11-12 CONDITIONAL research hypothesis, not a verified premarket observation. All metrics are permitted Finviz-style price proxies; no external news causation is inferred. No live quote freshness, source timestamps, market levels or actual threshold calibration were verified here. Do not score missing or stale inputs. Thresholds are illustrative and require empirical calibration."
-    },
-    {
-      "id": "S06",
-      "title": "Oil strength with equity weakness",
-      "description": "WTI rebounds while ES and Treasury futures soften; oil-price alignment does not verify geopolitical or inflation causation.",
-      "direction": "BEARISH",
-      "priority": 7,
-      "window": {
-        "starts_at": "08:30:00",
-        "ends_at": "16:00:00"
-      },
-      "support": [
-        {
-          "metric": "wti.return_30m_pct",
-          "operator": "gt",
-          "threshold": 0.75,
-          "weight": 1
-        },
-        {
-          "metric": "zf.return_30m_pct",
-          "operator": "lt",
-          "threshold": 0,
-          "weight": 1
-        },
-        {
-          "metric": "es.return_30m_pct",
-          "operator": "lt",
-          "threshold": -0.15,
-          "weight": 1
-        }
-      ],
-      "contradictions": [
-        {
-          "metric": "wti.return_30m_pct",
-          "operator": "lt",
-          "threshold": -0.75,
-          "weight": 1
-        }
-      ],
-      "optional_evidence": [],
-      "validation_scope": "MARKET_ALIGNMENT",
-      "hard_invalidation": [],
-      "required_confirmation": [
-        {
-          "metric": "wti.return_15m_pct",
-          "operator": "gt",
-          "threshold": 0,
-          "weight": 1
-        }
-      ],
-      "thresholds": {
-        "minimum_coverage": 70,
-        "developing": 50,
-        "validated": 80,
-        "contradicted": 70,
-        "hysteresis": 5
-      },
-      "minimum_observation_seconds": 300,
-      "minimum_persistence_seconds": 300,
-      "expires_at": "16:00:00",
-      "qualification": "MARKET_REACTION_PROXY",
-      "limitation": "2026-11-12 CONDITIONAL research hypothesis, not a verified premarket observation. All metrics are permitted Finviz-style price proxies; no external news causation is inferred. No live quote freshness, source timestamps, market levels or actual threshold calibration were verified here. Do not score missing or stale inputs. Thresholds are illustrative and require empirical calibration."
+      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only. External causation unverified. 2026-11-13 post-PPI exact official values not independently verified. Source freshness and actual Finviz runtime metric registry not inspected. Thresholds illustrative, not backtested. Missing or stale quotes must not be scored."
     },
     {
       "id": "S07",
-      "title": "ES failed rebound price proxy",
-      "description": "ES loses near-term momentum and trades negatively across multiple return windows; not an actual measured failed auction or swing-high rejection.",
+      "title": "Failed post-PPI rebound proxy",
+      "description": "ES turns negative across 5m/15m/30m windows after the reported PPI bounce; price-only proxy, not a measured auction failure.",
       "direction": "BEARISH",
-      "priority": 6,
+      "priority": 7,
       "window": {
         "starts_at": "08:30:00",
         "ends_at": "16:00:00"
@@ -421,7 +481,7 @@
           "weight": 1
         },
         {
-          "metric": "es.daily_change_pct",
+          "metric": "es.return_5m_pct",
           "operator": "lt",
           "threshold": 0,
           "weight": 1
@@ -431,16 +491,23 @@
         {
           "metric": "es.return_15m_pct",
           "operator": "gt",
-          "threshold": 0.25,
+          "threshold": 0.2,
           "weight": 1
         }
       ],
-      "optional_evidence": [],
+      "optional_evidence": [
+        {
+          "metric": "nq.return_15m_pct",
+          "operator": "lt",
+          "threshold": -0.2,
+          "weight": 1
+        }
+      ],
       "validation_scope": "PRICE_PROXY",
       "hard_invalidation": [],
       "required_confirmation": [
         {
-          "metric": "es.return_5m_pct",
+          "metric": "es.return_30m_pct",
           "operator": "lt",
           "threshold": 0,
           "weight": 1
@@ -457,12 +524,12 @@
       "minimum_persistence_seconds": 300,
       "expires_at": "16:00:00",
       "qualification": "PRICE_REVERSAL_PROXY",
-      "limitation": "2026-11-12 CONDITIONAL research hypothesis, not a verified premarket observation. All metrics are permitted Finviz-style price proxies; no external news causation is inferred. No live quote freshness, source timestamps, market levels or actual threshold calibration were verified here. Do not score missing or stale inputs. Thresholds are illustrative and require empirical calibration."
+      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only. External causation unverified. 2026-11-13 post-PPI exact official values not independently verified. Source freshness and actual Finviz runtime metric registry not inspected. Thresholds illustrative, not backtested. Missing or stale quotes must not be scored."
     },
     {
       "id": "S08",
-      "title": "Broad relief across ES bonds and gold",
-      "description": "ES, ZN and gold strengthen while WTI softens, a conditional cross-asset relief pattern.",
+      "title": "Broad cross-asset relief",
+      "description": "ES, bonds and gold advance as WTI weakens, consistent with relief in inflation risk, without attributing causation.",
       "direction": "BULLISH",
       "priority": 8,
       "window": {
@@ -497,19 +564,26 @@
       ],
       "contradictions": [
         {
-          "metric": "zn.return_30m_pct",
-          "operator": "lt",
-          "threshold": -0.05,
-          "weight": 1
-        },
-        {
           "metric": "es.return_30m_pct",
           "operator": "lt",
           "threshold": -0.2,
           "weight": 1
+        },
+        {
+          "metric": "zn.return_30m_pct",
+          "operator": "lt",
+          "threshold": -0.05,
+          "weight": 1
         }
       ],
-      "optional_evidence": [],
+      "optional_evidence": [
+        {
+          "metric": "btc.return_15m_pct",
+          "operator": "gt",
+          "threshold": 0.3,
+          "weight": 1
+        }
+      ],
       "validation_scope": "MARKET_ALIGNMENT",
       "hard_invalidation": [],
       "required_confirmation": [
@@ -537,7 +611,7 @@
       "minimum_persistence_seconds": 300,
       "expires_at": "16:00:00",
       "qualification": "MARKET_REACTION_PROXY",
-      "limitation": "2026-11-12 CONDITIONAL research hypothesis, not a verified premarket observation. All metrics are permitted Finviz-style price proxies; no external news causation is inferred. No live quote freshness, source timestamps, market levels or actual threshold calibration were verified here. Do not score missing or stale inputs. Thresholds are illustrative and require empirical calibration."
+      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only. External causation unverified. 2026-11-13 post-PPI exact official values not independently verified. Source freshness and actual Finviz runtime metric registry not inspected. Thresholds illustrative, not backtested. Missing or stale quotes must not be scored."
     }
   ]
 }
