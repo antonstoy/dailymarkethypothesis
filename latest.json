@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "revision": "2026-11-13 09:08 ET post-PPI conditional premarket; unverified exact PPI values",
-  "date": "2026-11-13",
+  "revision": "2026-11-16 09:40 ET conditional market scenarios; Empire State release and Fed Chair speech day",
+  "date": "2026-11-16",
   "instrument": "ES",
   "timezone": "America/New_York",
   "settings": {
@@ -15,93 +15,12 @@
   "hypotheses": [
     {
       "id": "S01",
-      "title": "PPI relief continuation",
-      "description": "ES/NQ rebound and strengthening Treasury futures would be consistent with a favorable PPI reaction, but would not prove PPI causation.",
-      "direction": "BULLISH",
+      "title": "NQ-led risk-off continuation",
+      "description": "NQ underperformance and negative ES momentum align with AI-sector pressure; they do not prove a single-stock cause.",
+      "direction": "BEARISH",
       "priority": 1,
       "window": {
-        "starts_at": "08:30:00",
-        "ends_at": "16:00:00"
-      },
-      "support": [
-        {
-          "metric": "es.return_30m_pct",
-          "operator": "gt",
-          "threshold": 0.15,
-          "weight": 1
-        },
-        {
-          "metric": "nq.return_30m_pct",
-          "operator": "gt",
-          "threshold": 0.2,
-          "weight": 1
-        },
-        {
-          "metric": "zn.return_30m_pct",
-          "operator": "gt",
-          "threshold": 0.03,
-          "weight": 1
-        }
-      ],
-      "contradictions": [
-        {
-          "metric": "es.return_15m_pct",
-          "operator": "lt",
-          "threshold": -0.2,
-          "weight": 1
-        },
-        {
-          "metric": "zn.return_30m_pct",
-          "operator": "lt",
-          "threshold": -0.04,
-          "weight": 1
-        }
-      ],
-      "optional_evidence": [
-        {
-          "metric": "gold.return_15m_pct",
-          "operator": "gt",
-          "threshold": 0.1,
-          "weight": 1
-        }
-      ],
-      "validation_scope": "MARKET_ALIGNMENT",
-      "hard_invalidation": [],
-      "required_confirmation": [
-        {
-          "metric": "es.return_15m_pct",
-          "operator": "gt",
-          "threshold": 0,
-          "weight": 1
-        },
-        {
-          "metric": "nq.return_15m_pct",
-          "operator": "gt",
-          "threshold": 0,
-          "weight": 1
-        }
-      ],
-      "thresholds": {
-        "minimum_coverage": 70,
-        "developing": 50,
-        "validated": 80,
-        "contradicted": 70,
-        "hysteresis": 5
-      },
-      "minimum_observation_seconds": 300,
-      "minimum_persistence_seconds": 300,
-      "expires_at": "16:00:00",
-      "qualification": "MARKET_REACTION_PROXY",
-      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only. External causation unverified. 2026-11-13 post-PPI exact official values not independently verified. Source freshness and actual Finviz runtime metric registry not inspected. Thresholds illustrative, not backtested. Missing or stale quotes must not be scored."
-    },
-    {
-      "id": "S02",
-      "title": "Technology-led ES downside",
-      "description": "NQ underperforms ES as technology weakness spills into index futures; price alignment does not establish an Nvidia-specific cause.",
-      "direction": "BEARISH",
-      "priority": 2,
-      "window": {
-        "starts_at": "08:30:00",
+        "starts_at": "09:30:00",
         "ends_at": "16:00:00"
       },
       "support": [
@@ -112,9 +31,15 @@
           "weight": 1
         },
         {
+          "metric": "es.return_30m_pct",
+          "operator": "lt",
+          "threshold": -0.15,
+          "weight": 1
+        },
+        {
           "metric": "relative.es_minus_nq_30m_pct",
           "operator": "gt",
-          "threshold": 0.2,
+          "threshold": 0.15,
           "weight": 1
         }
       ],
@@ -122,13 +47,13 @@
         {
           "metric": "nq.return_15m_pct",
           "operator": "gt",
-          "threshold": 0.2,
+          "threshold": 0.25,
           "weight": 1
         },
         {
-          "metric": "relative.es_minus_nq_15m_pct",
-          "operator": "lt",
-          "threshold": -0.1,
+          "metric": "es.return_15m_pct",
+          "operator": "gt",
+          "threshold": 0.2,
           "weight": 1
         }
       ],
@@ -136,7 +61,7 @@
         {
           "metric": "btc.return_15m_pct",
           "operator": "lt",
-          "threshold": -0.5,
+          "threshold": -0.3,
           "weight": 1
         }
       ],
@@ -145,6 +70,12 @@
       "required_confirmation": [
         {
           "metric": "nq.return_15m_pct",
+          "operator": "lt",
+          "threshold": 0,
+          "weight": 1
+        },
+        {
+          "metric": "es.return_15m_pct",
           "operator": "lt",
           "threshold": 0,
           "weight": 1
@@ -161,29 +92,29 @@
       "minimum_persistence_seconds": 300,
       "expires_at": "16:00:00",
       "qualification": "MARKET_REACTION_PROXY",
-      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only. External causation unverified. 2026-11-13 post-PPI exact official values not independently verified. Source freshness and actual Finviz runtime metric registry not inspected. Thresholds illustrative, not backtested. Missing or stale quotes must not be scored."
+      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only; external causation unverified. No direct runtime metric registry or current Finviz feed values verified. Thresholds are illustrative, not calibrated; source timestamps must be fresh and missing metrics must not be scored. Fed remarks at 12:00 ET may cause abrupt regime changes."
     },
     {
-      "id": "S03",
-      "title": "Hawkish equity-bond selling",
-      "description": "Equity and Treasury futures decline together, consistent with tightening repricing but not confirmation of Fed intent.",
+      "id": "S02",
+      "title": "Hawkish bond-equity alignment",
+      "description": "ZF and ES sell off together, consistent with inflation or policy-rate concerns but not proof of Fed causation.",
       "direction": "BEARISH",
-      "priority": 3,
+      "priority": 2,
       "window": {
-        "starts_at": "08:30:00",
+        "starts_at": "09:30:00",
         "ends_at": "16:00:00"
       },
       "support": [
         {
-          "metric": "es.return_30m_pct",
-          "operator": "lt",
-          "threshold": -0.2,
-          "weight": 1
-        },
-        {
           "metric": "zf.return_30m_pct",
           "operator": "lt",
           "threshold": -0.04,
+          "weight": 1
+        },
+        {
+          "metric": "es.return_30m_pct",
+          "operator": "lt",
+          "threshold": -0.2,
           "weight": 1
         },
         {
@@ -197,7 +128,7 @@
         {
           "metric": "zf.return_15m_pct",
           "operator": "gt",
-          "threshold": 0.04,
+          "threshold": 0.05,
           "weight": 1
         },
         {
@@ -219,13 +150,13 @@
       "hard_invalidation": [],
       "required_confirmation": [
         {
-          "metric": "es.return_15m_pct",
+          "metric": "zf.return_15m_pct",
           "operator": "lt",
           "threshold": 0,
           "weight": 1
         },
         {
-          "metric": "zf.return_15m_pct",
+          "metric": "es.return_15m_pct",
           "operator": "lt",
           "threshold": 0,
           "weight": 1
@@ -242,16 +173,16 @@
       "minimum_persistence_seconds": 300,
       "expires_at": "16:00:00",
       "qualification": "MARKET_REACTION_PROXY",
-      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only. External causation unverified. 2026-11-13 post-PPI exact official values not independently verified. Source freshness and actual Finviz runtime metric registry not inspected. Thresholds illustrative, not backtested. Missing or stale quotes must not be scored."
+      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only; external causation unverified. No direct runtime metric registry or current Finviz feed values verified. Thresholds are illustrative, not calibrated; source timestamps must be fresh and missing metrics must not be scored. Fed remarks at 12:00 ET may cause abrupt regime changes."
     },
     {
-      "id": "S04",
-      "title": "Defensive Treasury bid",
-      "description": "ES/NQ weakness with rising ZN indicates defensive risk-off alignment, distinct from uniform bond-equity selling.",
+      "id": "S03",
+      "title": "Defensive Treasury rotation",
+      "description": "Equities weaken as ZN strengthens, consistent with defensive rotation rather than parallel bond and equity selling.",
       "direction": "BEARISH",
-      "priority": 4,
+      "priority": 3,
       "window": {
-        "starts_at": "08:30:00",
+        "starts_at": "09:30:00",
         "ends_at": "16:00:00"
       },
       "support": [
@@ -317,16 +248,172 @@
       "minimum_persistence_seconds": 300,
       "expires_at": "16:00:00",
       "qualification": "MARKET_REACTION_PROXY",
-      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only. External causation unverified. 2026-11-13 post-PPI exact official values not independently verified. Source freshness and actual Finviz runtime metric registry not inspected. Thresholds illustrative, not backtested. Missing or stale quotes must not be scored."
+      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only; external causation unverified. No direct runtime metric registry or current Finviz feed values verified. Thresholds are illustrative, not calibrated; source timestamps must be fresh and missing metrics must not be scored. Fed remarks at 12:00 ET may cause abrupt regime changes."
+    },
+    {
+      "id": "S04",
+      "title": "Technology-led relief rebound",
+      "description": "ES and NQ rebound while ZN stabilizes; a price-based relief pattern before Nvidia results, not evidence earnings expectations changed.",
+      "direction": "BULLISH",
+      "priority": 4,
+      "window": {
+        "starts_at": "09:30:00",
+        "ends_at": "16:00:00"
+      },
+      "support": [
+        {
+          "metric": "es.return_30m_pct",
+          "operator": "gt",
+          "threshold": 0.15,
+          "weight": 1
+        },
+        {
+          "metric": "nq.return_30m_pct",
+          "operator": "gt",
+          "threshold": 0.25,
+          "weight": 1
+        },
+        {
+          "metric": "zn.return_30m_pct",
+          "operator": "gt",
+          "threshold": 0,
+          "weight": 1
+        }
+      ],
+      "contradictions": [
+        {
+          "metric": "es.return_15m_pct",
+          "operator": "lt",
+          "threshold": -0.2,
+          "weight": 1
+        },
+        {
+          "metric": "nq.return_15m_pct",
+          "operator": "lt",
+          "threshold": -0.3,
+          "weight": 1
+        }
+      ],
+      "optional_evidence": [
+        {
+          "metric": "btc.return_15m_pct",
+          "operator": "gt",
+          "threshold": 0.4,
+          "weight": 1
+        }
+      ],
+      "validation_scope": "MARKET_ALIGNMENT",
+      "hard_invalidation": [],
+      "required_confirmation": [
+        {
+          "metric": "es.return_15m_pct",
+          "operator": "gt",
+          "threshold": 0,
+          "weight": 1
+        },
+        {
+          "metric": "nq.return_15m_pct",
+          "operator": "gt",
+          "threshold": 0,
+          "weight": 1
+        }
+      ],
+      "thresholds": {
+        "minimum_coverage": 70,
+        "developing": 50,
+        "validated": 80,
+        "contradicted": 70,
+        "hysteresis": 5
+      },
+      "minimum_observation_seconds": 300,
+      "minimum_persistence_seconds": 300,
+      "expires_at": "16:00:00",
+      "qualification": "MARKET_REACTION_PROXY",
+      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only; external causation unverified. No direct runtime metric registry or current Finviz feed values verified. Thresholds are illustrative, not calibrated; source timestamps must be fresh and missing metrics must not be scored. Fed remarks at 12:00 ET may cause abrupt regime changes."
     },
     {
       "id": "S05",
-      "title": "Oil-supply risk alignment",
-      "description": "A WTI surge accompanied by ES and ZF declines would be consistent with energy-led inflation anxiety, not verified tanker-event causation.",
-      "direction": "BEARISH",
+      "title": "Oil disinflation relief",
+      "description": "WTI declines while ES and ZN strengthen; market alignment consistent with easing energy pressure, not proof of a particular export headline.",
+      "direction": "BULLISH",
       "priority": 5,
       "window": {
-        "starts_at": "08:30:00",
+        "starts_at": "09:30:00",
+        "ends_at": "16:00:00"
+      },
+      "support": [
+        {
+          "metric": "wti.return_30m_pct",
+          "operator": "lt",
+          "threshold": -0.6,
+          "weight": 1
+        },
+        {
+          "metric": "es.return_30m_pct",
+          "operator": "gt",
+          "threshold": 0.15,
+          "weight": 1
+        },
+        {
+          "metric": "zn.return_30m_pct",
+          "operator": "gt",
+          "threshold": 0.02,
+          "weight": 1
+        }
+      ],
+      "contradictions": [
+        {
+          "metric": "wti.return_15m_pct",
+          "operator": "gt",
+          "threshold": 0.5,
+          "weight": 1
+        },
+        {
+          "metric": "es.return_15m_pct",
+          "operator": "lt",
+          "threshold": -0.2,
+          "weight": 1
+        }
+      ],
+      "optional_evidence": [
+        {
+          "metric": "gold.return_15m_pct",
+          "operator": "gt",
+          "threshold": 0,
+          "weight": 1
+        }
+      ],
+      "validation_scope": "MARKET_ALIGNMENT",
+      "hard_invalidation": [],
+      "required_confirmation": [
+        {
+          "metric": "es.return_15m_pct",
+          "operator": "gt",
+          "threshold": 0,
+          "weight": 1
+        }
+      ],
+      "thresholds": {
+        "minimum_coverage": 70,
+        "developing": 50,
+        "validated": 80,
+        "contradicted": 70,
+        "hysteresis": 5
+      },
+      "minimum_observation_seconds": 300,
+      "minimum_persistence_seconds": 300,
+      "expires_at": "16:00:00",
+      "qualification": "MARKET_REACTION_PROXY",
+      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only; external causation unverified. No direct runtime metric registry or current Finviz feed values verified. Thresholds are illustrative, not calibrated; source timestamps must be fresh and missing metrics must not be scored. Fed remarks at 12:00 ET may cause abrupt regime changes."
+    },
+    {
+      "id": "S06",
+      "title": "Oil supply shock reversal",
+      "description": "WTI reverses upward while ES and ZF weaken, consistent with renewed oil-supply risk; tanker claims are not encoded as verified events.",
+      "direction": "BEARISH",
+      "priority": 6,
+      "window": {
+        "starts_at": "09:30:00",
         "ends_at": "16:00:00"
       },
       "support": [
@@ -367,7 +454,7 @@
         {
           "metric": "gold.return_30m_pct",
           "operator": "gt",
-          "threshold": 0.15,
+          "threshold": 0.1,
           "weight": 1
         }
       ],
@@ -392,16 +479,16 @@
       "minimum_persistence_seconds": 300,
       "expires_at": "16:00:00",
       "qualification": "MARKET_REACTION_PROXY",
-      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only. External causation unverified. 2026-11-13 post-PPI exact official values not independently verified. Source freshness and actual Finviz runtime metric registry not inspected. Thresholds illustrative, not backtested. Missing or stale quotes must not be scored."
+      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only; external causation unverified. No direct runtime metric registry or current Finviz feed values verified. Thresholds are illustrative, not calibrated; source timestamps must be fresh and missing metrics must not be scored. Fed remarks at 12:00 ET may cause abrupt regime changes."
     },
     {
-      "id": "S06",
-      "title": "ES resilience versus NQ",
-      "description": "Positive relative ES-minus-NQ returns indicate ES resilience, not necessarily absolute ES strength.",
+      "id": "S07",
+      "title": "ES relative resilience versus NQ",
+      "description": "Positive ES-minus-NQ returns show relative resilience even if ES is negative in absolute terms.",
       "direction": "CONDITIONAL",
-      "priority": 6,
+      "priority": 7,
       "window": {
-        "starts_at": "08:30:00",
+        "starts_at": "09:30:00",
         "ends_at": "16:00:00"
       },
       "support": [
@@ -455,19 +542,25 @@
       "minimum_persistence_seconds": 300,
       "expires_at": "16:00:00",
       "qualification": "MARKET_REACTION_PROXY",
-      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only. External causation unverified. 2026-11-13 post-PPI exact official values not independently verified. Source freshness and actual Finviz runtime metric registry not inspected. Thresholds illustrative, not backtested. Missing or stale quotes must not be scored."
+      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only; external causation unverified. No direct runtime metric registry or current Finviz feed values verified. Thresholds are illustrative, not calibrated; source timestamps must be fresh and missing metrics must not be scored. Fed remarks at 12:00 ET may cause abrupt regime changes."
     },
     {
-      "id": "S07",
-      "title": "Failed post-PPI rebound proxy",
-      "description": "ES turns negative across 5m/15m/30m windows after the reported PPI bounce; price-only proxy, not a measured auction failure.",
+      "id": "S08",
+      "title": "Failed opening recovery price proxy",
+      "description": "ES negative across 5m/15m/30m horizons after attempted recovery; does not establish a tested auction or failed breakout.",
       "direction": "BEARISH",
-      "priority": 7,
+      "priority": 8,
       "window": {
-        "starts_at": "08:30:00",
+        "starts_at": "09:30:00",
         "ends_at": "16:00:00"
       },
       "support": [
+        {
+          "metric": "es.return_5m_pct",
+          "operator": "lt",
+          "threshold": 0,
+          "weight": 1
+        },
         {
           "metric": "es.return_15m_pct",
           "operator": "lt",
@@ -479,19 +572,13 @@
           "operator": "lt",
           "threshold": -0.25,
           "weight": 1
-        },
-        {
-          "metric": "es.return_5m_pct",
-          "operator": "lt",
-          "threshold": 0,
-          "weight": 1
         }
       ],
       "contradictions": [
         {
           "metric": "es.return_15m_pct",
           "operator": "gt",
-          "threshold": 0.2,
+          "threshold": 0.25,
           "weight": 1
         }
       ],
@@ -524,94 +611,7 @@
       "minimum_persistence_seconds": 300,
       "expires_at": "16:00:00",
       "qualification": "PRICE_REVERSAL_PROXY",
-      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only. External causation unverified. 2026-11-13 post-PPI exact official values not independently verified. Source freshness and actual Finviz runtime metric registry not inspected. Thresholds illustrative, not backtested. Missing or stale quotes must not be scored."
-    },
-    {
-      "id": "S08",
-      "title": "Broad cross-asset relief",
-      "description": "ES, bonds and gold advance as WTI weakens, consistent with relief in inflation risk, without attributing causation.",
-      "direction": "BULLISH",
-      "priority": 8,
-      "window": {
-        "starts_at": "08:30:00",
-        "ends_at": "16:00:00"
-      },
-      "support": [
-        {
-          "metric": "es.return_30m_pct",
-          "operator": "gt",
-          "threshold": 0.15,
-          "weight": 1
-        },
-        {
-          "metric": "zn.return_30m_pct",
-          "operator": "gt",
-          "threshold": 0.03,
-          "weight": 1
-        },
-        {
-          "metric": "gold.return_30m_pct",
-          "operator": "gt",
-          "threshold": 0.1,
-          "weight": 1
-        },
-        {
-          "metric": "wti.return_30m_pct",
-          "operator": "lt",
-          "threshold": 0,
-          "weight": 1
-        }
-      ],
-      "contradictions": [
-        {
-          "metric": "es.return_30m_pct",
-          "operator": "lt",
-          "threshold": -0.2,
-          "weight": 1
-        },
-        {
-          "metric": "zn.return_30m_pct",
-          "operator": "lt",
-          "threshold": -0.05,
-          "weight": 1
-        }
-      ],
-      "optional_evidence": [
-        {
-          "metric": "btc.return_15m_pct",
-          "operator": "gt",
-          "threshold": 0.3,
-          "weight": 1
-        }
-      ],
-      "validation_scope": "MARKET_ALIGNMENT",
-      "hard_invalidation": [],
-      "required_confirmation": [
-        {
-          "metric": "es.return_15m_pct",
-          "operator": "gt",
-          "threshold": 0,
-          "weight": 1
-        },
-        {
-          "metric": "zn.return_15m_pct",
-          "operator": "gt",
-          "threshold": 0,
-          "weight": 1
-        }
-      ],
-      "thresholds": {
-        "minimum_coverage": 70,
-        "developing": 50,
-        "validated": 80,
-        "contradicted": 70,
-        "hysteresis": 5
-      },
-      "minimum_observation_seconds": 300,
-      "minimum_persistence_seconds": 300,
-      "expires_at": "16:00:00",
-      "qualification": "MARKET_REACTION_PROXY",
-      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only. External causation unverified. 2026-11-13 post-PPI exact official values not independently verified. Source freshness and actual Finviz runtime metric registry not inspected. Thresholds illustrative, not backtested. Missing or stale quotes must not be scored."
+      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only; external causation unverified. No direct runtime metric registry or current Finviz feed values verified. Thresholds are illustrative, not calibrated; source timestamps must be fresh and missing metrics must not be scored. Fed remarks at 12:00 ET may cause abrupt regime changes."
     }
   ]
 }
