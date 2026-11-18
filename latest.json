@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "revision": "2026-11-17 09:07 ET post-retail-sales premarket; industrial production and Fed speeches pending",
-  "date": "2026-11-17",
+  "revision": "2026-11-18 09:14 ET premarket conditional hypotheses; FOMC minutes at 14:00 ET",
+  "date": "2026-11-18",
   "instrument": "ES",
   "timezone": "America/New_York",
   "settings": {
@@ -15,8 +15,8 @@
   "hypotheses": [
     {
       "id": "S01",
-      "title": "Retail sales resilience with equity rebound",
-      "description": "ES and NQ advance while Treasury futures stabilize after retail sales; does not establish a retail-data cause.",
+      "title": "Technology-led equity rebound",
+      "description": "ES and NQ rise together, consistent with technology relief but not proof of a company-specific cause.",
       "direction": "BULLISH",
       "priority": 1,
       "window": {
@@ -35,25 +35,13 @@
           "operator": "gt",
           "threshold": 0.2,
           "weight": 1
-        },
-        {
-          "metric": "zn.return_30m_pct",
-          "operator": "gt",
-          "threshold": 0,
-          "weight": 1
         }
       ],
       "contradictions": [
         {
-          "metric": "es.return_15m_pct",
+          "metric": "nq.return_15m_pct",
           "operator": "lt",
           "threshold": -0.2,
-          "weight": 1
-        },
-        {
-          "metric": "zn.return_15m_pct",
-          "operator": "lt",
-          "threshold": -0.04,
           "weight": 1
         }
       ],
@@ -86,12 +74,12 @@
       "minimum_persistence_seconds": 300,
       "expires_at": "16:00:00",
       "qualification": "MARKET_REACTION_PROXY",
-      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only; external causation not established. News and scheduled releases are context, not direct metrics. Finviz runtime registry and live metric timestamps unavailable for independent verification. All thresholds are illustrative and not calibrated. Source timestamps required; do not score stale or missing metrics."
+      "limitation": "2026-11-18 conditional PRICE_PROXY/MARKET_ALIGNMENT only. No external causal inference. FOMC minutes pending. Finviz runtime registry and quote freshness not independently verified; missing or stale inputs must not be scored. Thresholds illustrative and uncalibrated."
     },
     {
       "id": "S02",
-      "title": "NQ-led downside continuation",
-      "description": "Technology-sensitive NQ weakens more than ES amid earnings uncertainty; price action cannot verify a company-specific cause.",
+      "title": "NQ-led renewed weakness",
+      "description": "NQ underperforms ES during renewed selling; market alignment only.",
       "direction": "BEARISH",
       "priority": 2,
       "window": {
@@ -155,12 +143,12 @@
       "minimum_persistence_seconds": 300,
       "expires_at": "16:00:00",
       "qualification": "MARKET_REACTION_PROXY",
-      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only; external causation not established. News and scheduled releases are context, not direct metrics. Finviz runtime registry and live metric timestamps unavailable for independent verification. All thresholds are illustrative and not calibrated. Source timestamps required; do not score stale or missing metrics."
+      "limitation": "2026-11-18 conditional PRICE_PROXY/MARKET_ALIGNMENT only. No external causal inference. FOMC minutes pending. Finviz runtime registry and quote freshness not independently verified; missing or stale inputs must not be scored. Thresholds illustrative and uncalibrated."
     },
     {
       "id": "S03",
-      "title": "Hawkish bond-equity alignment",
-      "description": "ES and Treasury futures decline together; consistent with tightening repricing but does not prove Fed policy causation.",
+      "title": "Hawkish equity-bond alignment",
+      "description": "ES and Treasury futures weaken together ahead of FOMC minutes; policy causation unverified.",
       "direction": "BEARISH",
       "priority": 3,
       "window": {
@@ -236,12 +224,12 @@
       "minimum_persistence_seconds": 300,
       "expires_at": "16:00:00",
       "qualification": "MARKET_REACTION_PROXY",
-      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only; external causation not established. News and scheduled releases are context, not direct metrics. Finviz runtime registry and live metric timestamps unavailable for independent verification. All thresholds are illustrative and not calibrated. Source timestamps required; do not score stale or missing metrics."
+      "limitation": "2026-11-18 conditional PRICE_PROXY/MARKET_ALIGNMENT only. No external causal inference. FOMC minutes pending. Finviz runtime registry and quote freshness not independently verified; missing or stale inputs must not be scored. Thresholds illustrative and uncalibrated."
     },
     {
       "id": "S04",
-      "title": "Defensive Treasury bid",
-      "description": "ZN rises while ES and NQ weaken, consistent with defensive rotation rather than parallel equity and bond selling.",
+      "title": "Defensive Treasury rotation",
+      "description": "Treasury futures rise as equities weaken, indicating defensive rotation.",
       "direction": "BEARISH",
       "priority": 4,
       "window": {
@@ -311,12 +299,12 @@
       "minimum_persistence_seconds": 300,
       "expires_at": "16:00:00",
       "qualification": "MARKET_REACTION_PROXY",
-      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only; external causation not established. News and scheduled releases are context, not direct metrics. Finviz runtime registry and live metric timestamps unavailable for independent verification. All thresholds are illustrative and not calibrated. Source timestamps required; do not score stale or missing metrics."
+      "limitation": "2026-11-18 conditional PRICE_PROXY/MARKET_ALIGNMENT only. No external causal inference. FOMC minutes pending. Finviz runtime registry and quote freshness not independently verified; missing or stale inputs must not be scored. Thresholds illustrative and uncalibrated."
     },
     {
       "id": "S05",
-      "title": "Oil export normalization relief",
-      "description": "WTI falls as ES and ZN rise; possible energy-disinflation alignment, not verification of export normalization causation.",
+      "title": "Oil inventory relief alignment",
+      "description": "WTI weakens while ES and ZN strengthen; inventory-driven disinflation is a hypothesis, not established causation.",
       "direction": "BULLISH",
       "priority": 5,
       "window": {
@@ -386,12 +374,12 @@
       "minimum_persistence_seconds": 300,
       "expires_at": "16:00:00",
       "qualification": "MARKET_REACTION_PROXY",
-      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only; external causation not established. News and scheduled releases are context, not direct metrics. Finviz runtime registry and live metric timestamps unavailable for independent verification. All thresholds are illustrative and not calibrated. Source timestamps required; do not score stale or missing metrics."
+      "limitation": "2026-11-18 conditional PRICE_PROXY/MARKET_ALIGNMENT only. No external causal inference. FOMC minutes pending. Finviz runtime registry and quote freshness not independently verified; missing or stale inputs must not be scored. Thresholds illustrative and uncalibrated."
     },
     {
       "id": "S06",
-      "title": "Oil supply disruption risk",
-      "description": "WTI rebounds while ES and ZF decline, a market-price proxy for renewed supply anxiety, not proof of a specific tanker attack.",
+      "title": "Oil supply risk rebound",
+      "description": "WTI rises while ES and ZF weaken; not proof of geopolitical events.",
       "direction": "BEARISH",
       "priority": 6,
       "window": {
@@ -455,12 +443,12 @@
       "minimum_persistence_seconds": 300,
       "expires_at": "16:00:00",
       "qualification": "MARKET_REACTION_PROXY",
-      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only; external causation not established. News and scheduled releases are context, not direct metrics. Finviz runtime registry and live metric timestamps unavailable for independent verification. All thresholds are illustrative and not calibrated. Source timestamps required; do not score stale or missing metrics."
+      "limitation": "2026-11-18 conditional PRICE_PROXY/MARKET_ALIGNMENT only. No external causal inference. FOMC minutes pending. Finviz runtime registry and quote freshness not independently verified; missing or stale inputs must not be scored. Thresholds illustrative and uncalibrated."
     },
     {
       "id": "S07",
-      "title": "ES relative resilience versus NQ",
-      "description": "Positive ES minus NQ relative returns indicate relative strength even if ES is negative in absolute terms.",
+      "title": "ES resilience versus NQ",
+      "description": "ES minus NQ spread positive, including when ES itself falls.",
       "direction": "CONDITIONAL",
       "priority": 7,
       "window": {
@@ -518,12 +506,12 @@
       "minimum_persistence_seconds": 300,
       "expires_at": "16:00:00",
       "qualification": "MARKET_REACTION_PROXY",
-      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only; external causation not established. News and scheduled releases are context, not direct metrics. Finviz runtime registry and live metric timestamps unavailable for independent verification. All thresholds are illustrative and not calibrated. Source timestamps required; do not score stale or missing metrics."
+      "limitation": "2026-11-18 conditional PRICE_PROXY/MARKET_ALIGNMENT only. No external causal inference. FOMC minutes pending. Finviz runtime registry and quote freshness not independently verified; missing or stale inputs must not be scored. Thresholds illustrative and uncalibrated."
     },
     {
       "id": "S08",
       "title": "Failed opening recovery proxy",
-      "description": "ES returns negative across short horizons; this is not proof of a tested auction or failed breakout.",
+      "description": "ES returns negative across short horizons; not an observed failed auction.",
       "direction": "BEARISH",
       "priority": 8,
       "window": {
@@ -587,7 +575,7 @@
       "minimum_persistence_seconds": 300,
       "expires_at": "16:00:00",
       "qualification": "PRICE_REVERSAL_PROXY",
-      "limitation": "PRICE_PROXY/MARKET_ALIGNMENT only; external causation not established. News and scheduled releases are context, not direct metrics. Finviz runtime registry and live metric timestamps unavailable for independent verification. All thresholds are illustrative and not calibrated. Source timestamps required; do not score stale or missing metrics."
+      "limitation": "2026-11-18 conditional PRICE_PROXY/MARKET_ALIGNMENT only. No external causal inference. FOMC minutes pending. Finviz runtime registry and quote freshness not independently verified; missing or stale inputs must not be scored. Thresholds illustrative and uncalibrated."
     }
   ]
 }
