@@ -1,0 +1,341 @@
+{
+  "schema_version": "1.0",
+  "instrument": "SPX",
+  "session_date": "2026-11-20",
+  "comparison_date": "2026-11-19",
+  "source": "https://stockcharts.com/freecharts/dpgallery.html",
+  "extraction_method": "human_reviewed",
+  "readings": [
+    {
+      "metric": "spx.close",
+      "value": 6910.39,
+      "previous": 7175.83,
+      "change": -265.44,
+      "unit": "points",
+      "chart": 1,
+      "as_of": "2026-11-20",
+      "period_status": "final"
+    },
+    {
+      "metric": "spx.low",
+      "value": 6882.66,
+      "previous": null,
+      "change": null,
+      "unit": "points",
+      "chart": 1,
+      "as_of": "2026-11-20",
+      "period_status": "final"
+    },
+    {
+      "metric": "spx.high",
+      "value": 7198.67,
+      "previous": null,
+      "change": null,
+      "unit": "points",
+      "chart": 1,
+      "as_of": "2026-11-20",
+      "period_status": "final"
+    },
+    {
+      "metric": "spx.ema20",
+      "value": 7446.66,
+      "previous": null,
+      "change": null,
+      "unit": "points",
+      "chart": 1,
+      "as_of": "2026-11-20",
+      "period_status": "final"
+    },
+    {
+      "metric": "spx.ema50",
+      "value": 7560.74,
+      "previous": null,
+      "change": null,
+      "unit": "points",
+      "chart": 1,
+      "as_of": "2026-11-20",
+      "period_status": "final"
+    },
+    {
+      "metric": "spx.ema200",
+      "value": 7360.03,
+      "previous": null,
+      "change": null,
+      "unit": "points",
+      "chart": 1,
+      "as_of": "2026-11-20",
+      "period_status": "final"
+    },
+    {
+      "metric": "pmo.daily",
+      "value": -1.47,
+      "previous": null,
+      "change": null,
+      "unit": "oscillator",
+      "chart": 1,
+      "as_of": "2026-11-20",
+      "period_status": "final"
+    },
+    {
+      "metric": "pmo.daily_signal",
+      "value": -0.79,
+      "previous": null,
+      "change": null,
+      "unit": "oscillator",
+      "chart": 1,
+      "as_of": "2026-11-20",
+      "period_status": "final"
+    },
+    {
+      "metric": "pmo.weekly",
+      "value": 2.07,
+      "previous": null,
+      "change": null,
+      "unit": "oscillator",
+      "chart": 2,
+      "as_of": "2026-11-20",
+      "period_status": "final"
+    },
+    {
+      "metric": "pmo.monthly",
+      "value": 12.87,
+      "previous": null,
+      "change": null,
+      "unit": "oscillator",
+      "chart": 3,
+      "as_of": "2026-11-20",
+      "period_status": "provisional"
+    },
+    {
+      "metric": "sto.breadth",
+      "value": -384.39,
+      "previous": null,
+      "change": null,
+      "unit": "oscillator",
+      "chart": 4,
+      "as_of": "2026-11-20",
+      "period_status": "final"
+    },
+    {
+      "metric": "sto.volume",
+      "value": -481.6,
+      "previous": null,
+      "change": null,
+      "unit": "oscillator",
+      "chart": 4,
+      "as_of": "2026-11-20",
+      "period_status": "final"
+    },
+    {
+      "metric": "itbm",
+      "value": -11.34,
+      "previous": null,
+      "change": null,
+      "unit": "oscillator",
+      "chart": 5,
+      "as_of": "2026-11-20",
+      "period_status": "final"
+    },
+    {
+      "metric": "itvm",
+      "value": -107.76,
+      "previous": null,
+      "change": null,
+      "unit": "oscillator",
+      "chart": 5,
+      "as_of": "2026-11-20",
+      "period_status": "final"
+    },
+    {
+      "metric": "breadth.above20",
+      "value": 21.8,
+      "previous": null,
+      "change": null,
+      "unit": "percent",
+      "chart": 6,
+      "as_of": "2026-11-20",
+      "period_status": "final"
+    },
+    {
+      "metric": "breadth.above50",
+      "value": 36.2,
+      "previous": null,
+      "change": null,
+      "unit": "percent",
+      "chart": 6,
+      "as_of": "2026-11-20",
+      "period_status": "final"
+    },
+    {
+      "metric": "breadth.above200",
+      "value": 47.4,
+      "previous": null,
+      "change": null,
+      "unit": "percent",
+      "chart": 6,
+      "as_of": "2026-11-20",
+      "period_status": "final"
+    },
+    {
+      "metric": "breadth.pmo_rising",
+      "value": 6,
+      "previous": null,
+      "change": null,
+      "unit": "percent",
+      "chart": 7,
+      "as_of": "2026-11-20",
+      "period_status": "final"
+    },
+    {
+      "metric": "breadth.pmo_buy",
+      "value": 22,
+      "previous": null,
+      "change": null,
+      "unit": "percent",
+      "chart": 7,
+      "as_of": "2026-11-20",
+      "period_status": "final"
+    },
+    {
+      "metric": "breadth.pmo_positive",
+      "value": 61,
+      "previous": null,
+      "change": null,
+      "unit": "percent",
+      "chart": 7,
+      "as_of": "2026-11-20",
+      "period_status": "final"
+    },
+    {
+      "metric": "breadth.net_advances",
+      "value": -249,
+      "previous": null,
+      "change": null,
+      "unit": "count",
+      "chart": 8,
+      "as_of": "2026-11-20",
+      "period_status": "final"
+    },
+    {
+      "metric": "breadth.net_advancing_volume",
+      "value": -3111.2,
+      "previous": null,
+      "change": null,
+      "unit": "chart_units",
+      "chart": 8,
+      "as_of": "2026-11-20",
+      "period_status": "final"
+    },
+    {
+      "metric": "breadth.new_highs",
+      "value": 2,
+      "previous": null,
+      "change": null,
+      "unit": "count",
+      "chart": 9,
+      "as_of": "2026-11-20",
+      "period_status": "final"
+    },
+    {
+      "metric": "breadth.new_lows",
+      "value": 21,
+      "previous": null,
+      "change": null,
+      "unit": "count",
+      "chart": 9,
+      "as_of": "2026-11-20",
+      "period_status": "final"
+    },
+    {
+      "metric": "mcclellan.oscillator",
+      "value": -94.95,
+      "previous": null,
+      "change": null,
+      "unit": "oscillator",
+      "chart": 10,
+      "as_of": "2026-11-20",
+      "period_status": "final"
+    },
+    {
+      "metric": "mcclellan.summation",
+      "value": 73.15,
+      "previous": null,
+      "change": null,
+      "unit": "oscillator",
+      "chart": 10,
+      "as_of": "2026-11-20",
+      "period_status": "final"
+    },
+    {
+      "metric": "sentiment.aaii_bulls",
+      "value": 33.3,
+      "previous": null,
+      "change": null,
+      "unit": "percent",
+      "chart": 11,
+      "as_of": "2026-11-20",
+      "period_status": "lagged"
+    },
+    {
+      "metric": "sentiment.aaii_bears",
+      "value": 42.2,
+      "previous": null,
+      "change": null,
+      "unit": "percent",
+      "chart": 11,
+      "as_of": "2026-11-20",
+      "period_status": "lagged"
+    },
+    {
+      "metric": "sentiment.rydex_ratio",
+      "value": 0.08,
+      "previous": null,
+      "change": null,
+      "unit": "ratio",
+      "chart": 12,
+      "as_of": "2026-11-19",
+      "period_status": "lagged"
+    }
+  ],
+  "regime": "Severe selloff with extreme short-term breadth stress",
+  "interpretation": "SPX closed down 3.70%, with only 6% of stocks showing rising PMOs, deeply negative STOs, negative net advances and 21 new lows. Oversold conditions warrant monitoring for exhaustion, but do not establish reversal.",
+  "limitations": [
+    "Retrospective baseline reconstructed from Friday charts; Thursday close derived from labeled daily change, other Thursday values unavailable.",
+    "Friday EMA5 omitted because the truncated chart did not display it; Monday summary contains a retrospective estimate.",
+    "Friday monthly PMO provisional; weekly PMO final.",
+    "AAII weekly exact survey date not printed; as_of is snapshot date. Rydex dated Nov 19.",
+    "No automated OCR was implemented."
+  ],
+  "hypotheses": [
+    {
+      "id": "rebound",
+      "description": "Oversold relief rally",
+      "status": "unconfirmed",
+      "evidence": [
+        "sto.breadth",
+        "sto.volume",
+        "breadth.pmo_rising"
+      ]
+    },
+    {
+      "id": "continuation",
+      "description": "Immediate bearish continuation",
+      "status": "unconfirmed",
+      "evidence": [
+        "spx.close",
+        "breadth.net_advances",
+        "itvm"
+      ]
+    },
+    {
+      "id": "bottom",
+      "description": "Durable market bottom",
+      "status": "unconfirmed",
+      "evidence": [
+        "itbm",
+        "itvm",
+        "mcclellan.summation"
+      ]
+    }
+  ]
+}
