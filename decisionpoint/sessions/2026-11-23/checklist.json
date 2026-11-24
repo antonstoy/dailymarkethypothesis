@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0",
+  "instrument": "SPX",
+  "baseline_date": "2026-11-23",
+  "target_session": "2026-11-24",
+  "evaluation_basis": "session_close",
+  "notes": [
+    "Thresholds are monitoring hypotheses, not backtested trading signals.",
+    "Compare fixed baseline levels, not moving intraday thresholds.",
+    "Intraday rejection or acceptance requires separate price action analysis."
+  ],
+  "items": [
+    {
+      "id": "hold_friday_high",
+      "metric": "spx.close",
+      "operator": "gte",
+      "threshold": 7198.67,
+      "baseline": 7237.17,
+      "purpose": "Hold reclaimed Friday high",
+      "status": "pending"
+    },
+    {
+      "id": "reclaim_200ema",
+      "metric": "spx.close",
+      "operator": "gte",
+      "threshold": 7358.81,
+      "baseline": 7237.17,
+      "purpose": "Reclaim Monday's fixed 200-day EMA reference",
+      "status": "pending"
+    },
+    {
+      "id": "sto_b",
+      "metric": "sto.breadth",
+      "operator": "gt",
+      "threshold": -336.09,
+      "baseline": -336.09,
+      "purpose": "Breadth oscillator continues recovering",
+      "status": "pending"
+    },
+    {
+      "id": "sto_v",
+      "metric": "sto.volume",
+      "operator": "gt",
+      "threshold": -399.66,
+      "baseline": -399.66,
+      "purpose": "Volume oscillator continues recovering",
+      "status": "pending"
+    },
+    {
+      "id": "mcclellan",
+      "metric": "mcclellan.oscillator",
+      "operator": "gt",
+      "threshold": -48.18,
+      "baseline": -48.18,
+      "purpose": "Breadth momentum improves",
+      "status": "pending"
+    },
+    {
+      "id": "mcclellan_positive",
+      "metric": "mcclellan.oscillator",
+      "operator": "gte",
+      "threshold": 0,
+      "baseline": -48.18,
+      "purpose": "Breadth momentum reaches zero",
+      "status": "pending"
+    },
+    {
+      "id": "above20",
+      "metric": "breadth.above20",
+      "operator": "gte",
+      "threshold": 50,
+      "baseline": 38.4,
+      "purpose": "Majority above 20 EMA",
+      "status": "pending"
+    },
+    {
+      "id": "above50",
+      "metric": "breadth.above50",
+      "operator": "gte",
+      "threshold": 50,
+      "baseline": 48.0,
+      "purpose": "Majority above 50 EMA",
+      "status": "pending"
+    },
+    {
+      "id": "rising_pmo",
+      "metric": "breadth.pmo_rising",
+      "operator": "gte",
+      "threshold": 40,
+      "baseline": 26,
+      "purpose": "Momentum participation expands",
+      "status": "pending"
+    },
+    {
+      "id": "new_lows",
+      "metric": "breadth.new_lows",
+      "operator": "lte",
+      "threshold": 4,
+      "baseline": 4,
+      "purpose": "New lows remain subdued",
+      "status": "pending"
+    },
+    {
+      "id": "itbm",
+      "metric": "itbm",
+      "operator": "gte",
+      "threshold": -23.93,
+      "baseline": -23.93,
+      "purpose": "Intermediate breadth stabilizes",
+      "status": "pending"
+    },
+    {
+      "id": "itvm",
+      "metric": "itvm",
+      "operator": "gte",
+      "threshold": -118.58,
+      "baseline": -118.58,
+      "purpose": "Intermediate volume stabilizes",
+      "status": "pending"
+    },
+    {
+      "id": "pmo_buy",
+      "metric": "breadth.pmo_buy",
+      "operator": "gt",
+      "threshold": 20,
+      "baseline": 20,
+      "purpose": "PMO buy signals expand",
+      "status": "pending"
+    },
+    {
+      "id": "summation",
+      "metric": "mcclellan.summation",
+      "operator": "gte",
+      "threshold": 24.99,
+      "baseline": 24.99,
+      "purpose": "Summation stabilizes",
+      "status": "pending"
+    },
+    {
+      "id": "protect_friday_low",
+      "metric": "spx.close",
+      "operator": "gt",
+      "threshold": 6882.66,
+      "baseline": 7237.17,
+      "purpose": "Avoid closing below Friday low",
+      "status": "pending"
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:decisionpoint:summary:1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "instrument": {
+      "const": "SPX"
+    },
+    "session_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "comparison_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "source": {
+      "type": "string"
+    },
+    "extraction_method": {
+      "enum": [
+        "human_reviewed",
+        "ocr_reviewed"
+      ]
+    },
+    "readings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "metric": {
+            "enum": [
+              "spx.close",
+              "spx.low",
+              "spx.high",
+              "spx.ema5",
+              "spx.ema20",
+              "spx.ema50",
+              "spx.ema200",
+              "pmo.daily",
+              "pmo.daily_signal",
+              "pmo.weekly",
+              "pmo.monthly",
+              "sto.breadth",
+              "sto.volume",
+              "itbm",
+              "itvm",
+              "breadth.above20",
+              "breadth.above50",
+              "breadth.above200",
+              "breadth.pmo_rising",
+              "breadth.pmo_buy",
+              "breadth.pmo_positive",
+              "breadth.net_advances",
+              "breadth.net_advancing_volume",
+              "breadth.new_highs",
+              "breadth.new_lows",
+              "mcclellan.oscillator",
+              "mcclellan.summation",
+              "sentiment.aaii_bulls",
+              "sentiment.aaii_bears",
+              "sentiment.rydex_ratio"
+            ]
+          },
+          "value": {
+            "type": "number"
+          },
+          "previous": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "change": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "unit": {
+            "enum": [
+              "points",
+              "oscillator",
+              "percent",
+              "count",
+              "chart_units",
+              "ratio"
+            ]
+          },
+          "chart": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 12
+          },
+          "as_of": {
+            "type": "string",
+            "format": "date"
+          },
+          "period_status": {
+            "enum": [
+              "final",
+              "provisional",
+              "lagged"
+            ]
+          }
+        },
+        "required": [
+          "metric",
+          "value",
+          "previous",
+          "change",
+          "unit",
+          "chart",
+          "as_of",
+          "period_status"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "regime": {
+      "type": "string"
+    },
+    "interpretation": {
+      "type": "string"
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "supported",
+              "weakened",
+              "unconfirmed"
+            ]
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "spx.close",
+                "spx.low",
+                "spx.high",
+                "spx.ema5",
+                "spx.ema20",
+                "spx.ema50",
+                "spx.ema200",
+                "pmo.daily",
+                "pmo.daily_signal",
+                "pmo.weekly",
+                "pmo.monthly",
+                "sto.breadth",
+                "sto.volume",
+                "itbm",
+                "itvm",
+                "breadth.above20",
+                "breadth.above50",
+                "breadth.above200",
+                "breadth.pmo_rising",
+                "breadth.pmo_buy",
+                "breadth.pmo_positive",
+                "breadth.net_advances",
+                "breadth.net_advancing_volume",
+                "breadth.new_highs",
+                "breadth.new_lows",
+                "mcclellan.oscillator",
+                "mcclellan.summation",
+                "sentiment.aaii_bulls",
+                "sentiment.aaii_bears",
+                "sentiment.rydex_ratio"
+              ]
+            }
+          }
+        },
+        "required": [
+          "id",
+          "description",
+          "status",
+          "evidence"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "instrument",
+    "session_date",
+    "comparison_date",
+    "source",
+    "extraction_method",
+    "readings",
+    "regime",
+    "interpretation",
+    "limitations",
+    "hypotheses"
+  ],
+  "additionalProperties": false
+}

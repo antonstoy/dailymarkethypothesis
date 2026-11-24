@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:decisionpoint:checklist:1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "instrument": {
+      "const": "SPX"
+    },
+    "baseline_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "target_session": {
+      "type": "string",
+      "format": "date"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "metric": {
+            "enum": [
+              "spx.close",
+              "spx.low",
+              "spx.high",
+              "spx.ema5",
+              "spx.ema20",
+              "spx.ema50",
+              "spx.ema200",
+              "pmo.daily",
+              "pmo.daily_signal",
+              "pmo.weekly",
+              "pmo.monthly",
+              "sto.breadth",
+              "sto.volume",
+              "itbm",
+              "itvm",
+              "breadth.above20",
+              "breadth.above50",
+              "breadth.above200",
+              "breadth.pmo_rising",
+              "breadth.pmo_buy",
+              "breadth.pmo_positive",
+              "breadth.net_advances",
+              "breadth.net_advancing_volume",
+              "breadth.new_highs",
+              "breadth.new_lows",
+              "mcclellan.oscillator",
+              "mcclellan.summation",
+              "sentiment.aaii_bulls",
+              "sentiment.aaii_bears",
+              "sentiment.rydex_ratio"
+            ]
+          },
+          "operator": {
+            "enum": [
+              "gt",
+              "gte",
+              "lt",
+              "lte"
+            ]
+          },
+          "threshold": {
+            "type": "number"
+          },
+          "baseline": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "pending",
+              "met",
+              "not_met",
+              "unavailable"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "metric",
+          "operator",
+          "threshold",
+          "baseline",
+          "purpose",
+          "status"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "evaluation_basis": {
+      "const": "session_close"
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "instrument",
+    "baseline_date",
+    "target_session",
+    "items",
+    "evaluation_basis",
+    "notes"
+  ],
+  "additionalProperties": false
+}
