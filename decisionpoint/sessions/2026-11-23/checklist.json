@@ -17,7 +17,7 @@
       "threshold": 7198.67,
       "baseline": 7237.17,
       "purpose": "Hold reclaimed Friday high",
-      "status": "pending"
+      "status": "met"
     },
     {
       "id": "reclaim_200ema",
@@ -26,7 +26,7 @@
       "threshold": 7358.81,
       "baseline": 7237.17,
       "purpose": "Reclaim Monday's fixed 200-day EMA reference",
-      "status": "pending"
+      "status": "not_met"
     },
     {
       "id": "sto_b",
@@ -35,7 +35,7 @@
       "threshold": -336.09,
       "baseline": -336.09,
       "purpose": "Breadth oscillator continues recovering",
-      "status": "pending"
+      "status": "met"
     },
     {
       "id": "sto_v",
@@ -44,7 +44,7 @@
       "threshold": -399.66,
       "baseline": -399.66,
       "purpose": "Volume oscillator continues recovering",
-      "status": "pending"
+      "status": "met"
     },
     {
       "id": "mcclellan",
@@ -53,7 +53,7 @@
       "threshold": -48.18,
       "baseline": -48.18,
       "purpose": "Breadth momentum improves",
-      "status": "pending"
+      "status": "met"
     },
     {
       "id": "mcclellan_positive",
@@ -62,7 +62,7 @@
       "threshold": 0,
       "baseline": -48.18,
       "purpose": "Breadth momentum reaches zero",
-      "status": "pending"
+      "status": "not_met"
     },
     {
       "id": "above20",
@@ -71,16 +71,16 @@
       "threshold": 50,
       "baseline": 38.4,
       "purpose": "Majority above 20 EMA",
-      "status": "pending"
+      "status": "not_met"
     },
     {
       "id": "above50",
       "metric": "breadth.above50",
       "operator": "gte",
       "threshold": 50,
-      "baseline": 48.0,
+      "baseline": 48,
       "purpose": "Majority above 50 EMA",
-      "status": "pending"
+      "status": "met"
     },
     {
       "id": "rising_pmo",
@@ -89,7 +89,7 @@
       "threshold": 40,
       "baseline": 26,
       "purpose": "Momentum participation expands",
-      "status": "pending"
+      "status": "not_met"
     },
     {
       "id": "new_lows",
@@ -98,7 +98,7 @@
       "threshold": 4,
       "baseline": 4,
       "purpose": "New lows remain subdued",
-      "status": "pending"
+      "status": "met"
     },
     {
       "id": "itbm",
@@ -107,7 +107,7 @@
       "threshold": -23.93,
       "baseline": -23.93,
       "purpose": "Intermediate breadth stabilizes",
-      "status": "pending"
+      "status": "not_met"
     },
     {
       "id": "itvm",
@@ -116,7 +116,7 @@
       "threshold": -118.58,
       "baseline": -118.58,
       "purpose": "Intermediate volume stabilizes",
-      "status": "pending"
+      "status": "not_met"
     },
     {
       "id": "pmo_buy",
@@ -125,7 +125,7 @@
       "threshold": 20,
       "baseline": 20,
       "purpose": "PMO buy signals expand",
-      "status": "pending"
+      "status": "met"
     },
     {
       "id": "summation",
@@ -134,7 +134,7 @@
       "threshold": 24.99,
       "baseline": 24.99,
       "purpose": "Summation stabilizes",
-      "status": "pending"
+      "status": "not_met"
     },
     {
       "id": "protect_friday_low",
@@ -143,7 +143,7 @@
       "threshold": 6882.66,
       "baseline": 7237.17,
       "purpose": "Avoid closing below Friday low",
-      "status": "pending"
+      "status": "met"
     }
   ]
 }

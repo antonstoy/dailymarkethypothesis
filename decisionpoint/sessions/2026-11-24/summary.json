@@ -1,0 +1,353 @@
+{
+  "schema_version": "1.0",
+  "instrument": "SPX",
+  "session_date": "2026-11-24",
+  "comparison_date": "2026-11-23",
+  "source": "https://stockcharts.com/freecharts/dpgallery.html",
+  "extraction_method": "human_reviewed",
+  "readings": [
+    {
+      "metric": "spx.close",
+      "value": 7201.09,
+      "previous": 7237.17,
+      "change": -36.08,
+      "unit": "points",
+      "chart": 1,
+      "as_of": "2026-11-24",
+      "period_status": "final"
+    },
+    {
+      "metric": "spx.low",
+      "value": 7138.93,
+      "previous": 7152.66,
+      "change": -13.73,
+      "unit": "points",
+      "chart": 1,
+      "as_of": "2026-11-24",
+      "period_status": "final"
+    },
+    {
+      "metric": "spx.high",
+      "value": 7223.95,
+      "previous": 7295.6,
+      "change": -71.65,
+      "unit": "points",
+      "chart": 1,
+      "as_of": "2026-11-24",
+      "period_status": "final"
+    },
+    {
+      "metric": "spx.ema5",
+      "value": 7205.18,
+      "previous": 7207.23,
+      "change": -2.05,
+      "unit": "points",
+      "chart": 1,
+      "as_of": "2026-11-24",
+      "period_status": "final"
+    },
+    {
+      "metric": "spx.ema20",
+      "value": 7405.22,
+      "previous": 7426.71,
+      "change": -21.49,
+      "unit": "points",
+      "chart": 1,
+      "as_of": "2026-11-24",
+      "period_status": "final"
+    },
+    {
+      "metric": "spx.ema50",
+      "value": 7534.45,
+      "previous": 7548.06,
+      "change": -13.61,
+      "unit": "points",
+      "chart": 1,
+      "as_of": "2026-11-24",
+      "period_status": "final"
+    },
+    {
+      "metric": "spx.ema200",
+      "value": 7357.24,
+      "previous": 7358.81,
+      "change": -1.57,
+      "unit": "points",
+      "chart": 1,
+      "as_of": "2026-11-24",
+      "period_status": "final"
+    },
+    {
+      "metric": "pmo.daily",
+      "value": -1.59,
+      "previous": -1.53,
+      "change": -0.06,
+      "unit": "oscillator",
+      "chart": 1,
+      "as_of": "2026-11-24",
+      "period_status": "final"
+    },
+    {
+      "metric": "pmo.daily_signal",
+      "value": -1.04,
+      "previous": -0.92,
+      "change": -0.12,
+      "unit": "oscillator",
+      "chart": 1,
+      "as_of": "2026-11-24",
+      "period_status": "final"
+    },
+    {
+      "metric": "pmo.weekly",
+      "value": 1.76,
+      "previous": 1.79,
+      "change": -0.03,
+      "unit": "oscillator",
+      "chart": 2,
+      "as_of": "2026-11-24",
+      "period_status": "provisional"
+    },
+    {
+      "metric": "pmo.monthly",
+      "value": 13.09,
+      "previous": 13.11,
+      "change": -0.02,
+      "unit": "oscillator",
+      "chart": 3,
+      "as_of": "2026-11-24",
+      "period_status": "provisional"
+    },
+    {
+      "metric": "sto.breadth",
+      "value": -203.32,
+      "previous": -336.09,
+      "change": 132.77,
+      "unit": "oscillator",
+      "chart": 4,
+      "as_of": "2026-11-24",
+      "period_status": "final"
+    },
+    {
+      "metric": "sto.volume",
+      "value": -286.21,
+      "previous": -399.66,
+      "change": 113.45,
+      "unit": "oscillator",
+      "chart": 4,
+      "as_of": "2026-11-24",
+      "period_status": "final"
+    },
+    {
+      "metric": "itbm",
+      "value": -27.88,
+      "previous": -23.93,
+      "change": -3.95,
+      "unit": "oscillator",
+      "chart": 5,
+      "as_of": "2026-11-24",
+      "period_status": "final"
+    },
+    {
+      "metric": "itvm",
+      "value": -125.21,
+      "previous": -118.58,
+      "change": -6.63,
+      "unit": "oscillator",
+      "chart": 5,
+      "as_of": "2026-11-24",
+      "period_status": "final"
+    },
+    {
+      "metric": "breadth.above20",
+      "value": 49.2,
+      "previous": 38.4,
+      "change": 10.8,
+      "unit": "percent",
+      "chart": 6,
+      "as_of": "2026-11-24",
+      "period_status": "final"
+    },
+    {
+      "metric": "breadth.above50",
+      "value": 52.8,
+      "previous": 48,
+      "change": 4.8,
+      "unit": "percent",
+      "chart": 6,
+      "as_of": "2026-11-24",
+      "period_status": "final"
+    },
+    {
+      "metric": "breadth.above200",
+      "value": 57,
+      "previous": 55.4,
+      "change": 1.6,
+      "unit": "percent",
+      "chart": 6,
+      "as_of": "2026-11-24",
+      "period_status": "final"
+    },
+    {
+      "metric": "breadth.pmo_rising",
+      "value": 35,
+      "previous": 26,
+      "change": 9,
+      "unit": "percent",
+      "chart": 7,
+      "as_of": "2026-11-24",
+      "period_status": "final"
+    },
+    {
+      "metric": "breadth.pmo_buy",
+      "value": 21,
+      "previous": 20,
+      "change": 1,
+      "unit": "percent",
+      "chart": 7,
+      "as_of": "2026-11-24",
+      "period_status": "final"
+    },
+    {
+      "metric": "breadth.pmo_positive",
+      "value": 59,
+      "previous": 60,
+      "change": -1,
+      "unit": "percent",
+      "chart": 7,
+      "as_of": "2026-11-24",
+      "period_status": "final"
+    },
+    {
+      "metric": "breadth.net_advances",
+      "value": 193,
+      "previous": 333,
+      "change": -140,
+      "unit": "count",
+      "chart": 8,
+      "as_of": "2026-11-24",
+      "period_status": "final"
+    },
+    {
+      "metric": "breadth.net_advancing_volume",
+      "value": 97.24,
+      "previous": 3057.4,
+      "change": -2960.16,
+      "unit": "chart_units",
+      "chart": 8,
+      "as_of": "2026-11-24",
+      "period_status": "final"
+    },
+    {
+      "metric": "breadth.new_highs",
+      "value": 12,
+      "previous": 2,
+      "change": 10,
+      "unit": "count",
+      "chart": 9,
+      "as_of": "2026-11-24",
+      "period_status": "final"
+    },
+    {
+      "metric": "breadth.new_lows",
+      "value": 3,
+      "previous": 4,
+      "change": -1,
+      "unit": "count",
+      "chart": 9,
+      "as_of": "2026-11-24",
+      "period_status": "final"
+    },
+    {
+      "metric": "mcclellan.oscillator",
+      "value": -21.98,
+      "previous": -48.18,
+      "change": 26.2,
+      "unit": "oscillator",
+      "chart": 10,
+      "as_of": "2026-11-24",
+      "period_status": "final"
+    },
+    {
+      "metric": "mcclellan.summation",
+      "value": 2.99,
+      "previous": 24.99,
+      "change": -22,
+      "unit": "oscillator",
+      "chart": 10,
+      "as_of": "2026-11-24",
+      "period_status": "final"
+    },
+    {
+      "metric": "sentiment.aaii_bulls",
+      "value": 33.3,
+      "previous": 33.3,
+      "change": 0,
+      "unit": "percent",
+      "chart": 11,
+      "as_of": "2026-11-24",
+      "period_status": "lagged"
+    },
+    {
+      "metric": "sentiment.aaii_bears",
+      "value": 42.2,
+      "previous": 42.2,
+      "change": 0,
+      "unit": "percent",
+      "chart": 11,
+      "as_of": "2026-11-24",
+      "period_status": "lagged"
+    },
+    {
+      "metric": "sentiment.rydex_ratio",
+      "value": 0.067,
+      "previous": 0.091,
+      "change": -0.024,
+      "unit": "ratio",
+      "chart": 12,
+      "as_of": "2026-11-23",
+      "period_status": "lagged"
+    }
+  ],
+  "regime": "Price pullback with improving short-term breadth and weakening intermediate momentum",
+  "interpretation": "SPX fell 0.50% to 7201.09, closing 2.42 points above Friday's high after trading below it. STO-B and STO-V rose, the McClellan Oscillator recovered to -21.98, and 52.8% of constituents were above their 50-day EMA. Net advances stayed positive (+193), but net advancing volume fell to +97.24 chart units. New highs rose to 12 and new lows fell to 3. Daily PMO, ITBM, ITVM and the McClellan Summation Index all deteriorated. Monday's relief rally showed breadth follow-through, while price and slower measures have yet to confirm trend repair.",
+  "limitations": [
+    "Weekly and monthly bars are provisional.",
+    "AAII readings are unchanged and lagged; as_of is the chart snapshot date because the survey date is not printed. Rydex reading is dated Nov 23.",
+    "New lows are recorded as a positive count; the chart plots them below zero."
+  ],
+  "hypotheses": [
+    {
+      "id": "rebound",
+      "description": "Oversold relief rally retains short-term breadth follow-through",
+      "status": "supported",
+      "evidence": [
+        "sto.breadth",
+        "sto.volume",
+        "breadth.above50",
+        "breadth.new_highs",
+        "breadth.new_lows"
+      ]
+    },
+    {
+      "id": "continuation",
+      "description": "Immediate downside continuation below the November 20 low",
+      "status": "weakened",
+      "evidence": [
+        "spx.low",
+        "spx.close",
+        "breadth.net_advances"
+      ]
+    },
+    {
+      "id": "bottom",
+      "description": "Durable market bottom and intermediate trend repair",
+      "status": "unconfirmed",
+      "evidence": [
+        "spx.ema200",
+        "pmo.daily",
+        "itbm",
+        "itvm",
+        "mcclellan.summation"
+      ]
+    }
+  ]
+}

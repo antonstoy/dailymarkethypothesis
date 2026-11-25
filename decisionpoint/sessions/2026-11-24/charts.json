@@ -1,0 +1,68 @@
+{
+  "session_date": "2026-11-24",
+  "source": "https://stockcharts.com/freecharts/dpgallery.html",
+  "downloaded_at": "2026-11-25T07:50:47.781684+00:00",
+  "url_type": "live",
+  "charts": [
+    {
+      "chart": 1,
+      "title": "Daily Trend Analysis",
+      "url": "https://stockcharts.com/c-sc/sc?s=$SPX&p=D&yr=1&mn=0&dy=0&id=p58434438904&a=353809661"
+    },
+    {
+      "chart": 2,
+      "title": "Weekly Trend Analysis",
+      "url": "https://stockcharts.com/c-sc/sc?s=$SPX&p=W&yr=7&mn=0&dy=0&id=p80528484823&a=353809661"
+    },
+    {
+      "chart": 3,
+      "title": "Monthly Trend Analysis",
+      "url": "https://stockcharts.com/c-sc/sc?s=$SPX&p=M&yr=20&mn=0&dy=0&id=p86415236683&a=353809661"
+    },
+    {
+      "chart": 4,
+      "title": "Short-Term Oscillator",
+      "url": "https://stockcharts.com/c-sc/sc?s=$SPX&p=D&yr=1&mn=0&dy=0&id=p67371986586&a=353809661"
+    },
+    {
+      "chart": 5,
+      "title": "Intermediate-Term Oscillator",
+      "url": "https://stockcharts.com/c-sc/sc?s=$SPX&p=D&yr=3&mn=0&dy=0&id=p95281151039&a=353809661"
+    },
+    {
+      "chart": 6,
+      "title": "Market Strength",
+      "url": "https://stockcharts.com/c-sc/sc?s=$SPX&p=D&yr=3&mn=0&dy=0&id=p17597593804&a=353809661"
+    },
+    {
+      "chart": 7,
+      "title": "Price Momentum Oscillator",
+      "url": "https://stockcharts.com/c-sc/sc?s=$SPX&p=D&yr=3&mn=0&dy=0&id=p44326370699&a=353809661"
+    },
+    {
+      "chart": 8,
+      "title": "Advance-Decline Lines",
+      "url": "https://stockcharts.com/c-sc/sc?s=$SPX&p=D&yr=1&mn=0&dy=0&id=p35325570360&a=353809661"
+    },
+    {
+      "chart": 9,
+      "title": "Net New 52-Week Highs",
+      "url": "https://stockcharts.com/c-sc/sc?s=$SPX&p=D&yr=3&mn=0&dy=0&id=p75279986320&a=353809661"
+    },
+    {
+      "chart": 10,
+      "title": "McClellan Oscillator",
+      "url": "https://stockcharts.com/c-sc/sc?s=$SPX&p=D&yr=3&mn=0&dy=0&id=p67289241200&a=353809661"
+    },
+    {
+      "chart": 11,
+      "title": "Investor Sentiment",
+      "url": "https://stockcharts.com/c-sc/sc?s=$SPX&p=W&yr=6&mn=7&dy=0&id=p57510370862&a=353809661"
+    },
+    {
+      "chart": 12,
+      "title": "Rydex Total Asset Ratio",
+      "url": "https://stockcharts.com/c-sc/sc?s=$SPX&p=D&yr=3&mn=0&dy=0&id=p12315692746&a=353809661"
+    }
+  ]
+}
